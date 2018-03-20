@@ -121,7 +121,15 @@ function iReport(r){
 }
 
 function saveOutputToFile(thelog){
-    fs.writeFile('output.txt', thelog, function(err) {
+    let now = new Date();
+    let YY = now.getFullYear();
+    let MM = now.getMonth() + 1;
+    let DD = now.getDate();
+    var HH = now.getHours();
+    var MM = now.getMinutes();
+    var SS = now.getSeconds();
+
+    fs.writeFile(`${YY}-${MM}-${DD}_${HH}-${MM}-${SS}_output.txt`, thelog, function(err) {
         if (err) throw err;
     });
 }
