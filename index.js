@@ -10,8 +10,17 @@ async function main(){
         return url.loc[0];
     })
 
-    //console.log(urls);
-    console.log(await scanUrls(urls));
+    // urls is an array of url strings
+
+    // let's make a smaller sample of all those urls for faster testing
+    const urlsSample = urls.splice(0,3);
+
+    console.log(urlsSample);
+    // console.log(urls);
+
+    //console.log(await scanUrls(urls));
+    //console.log(await scanUrls(urlsSample));
+    await scanUrls(urlsSample);
 }
 
 main();
@@ -46,6 +55,7 @@ async function scanUrls(urls){
             const result = await pa11y(url);
             results.push(result);
             // console.log(result);
+            iReport(result);
         }
         catch(e){
             console.log(e);
@@ -53,4 +63,21 @@ async function scanUrls(urls){
     }
 
     return results;
+}
+
+function iReport(r){
+	console.log("####################################");
+	console.log('\x1b[36m%s\x1b[0m', r.pageUrl);
+	console.log('\x1b[36m%s\x1b[0m', r.issues.length + " issues reported.")
+	console.log("####################################");
+	console.log("");
+	r.issues.forEach(function(entry, i) {
+		console.log('\x1b[31m%s\x1b[0m', 'Issue ' + (i+1) + ' of ' + r.issues.length + ' for ' + '\x1b[36m' + r.pageUrl)
+		console.log(entry.message); 
+		console.log("");
+		console.log(entry.selector);
+		console.log("");
+		console.log("----------");
+		console.log("");
+	});
 }
