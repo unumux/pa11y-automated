@@ -3,6 +3,7 @@ const rp = require('request-promise');
 const {parseString} = require('xml2js');
 const {promisify} = require('util');
 const puppeteer = require('puppeteer');
+const chalk = require('chalk');
 
 
 
@@ -59,7 +60,7 @@ async function scanUrls(urls){
         try{
 
             const url = urls[x];
-            console.log(url);
+            // console.log(url);
             //const result = await pa11y(url);
             const result = await pa11y(url, {browser: browser});
             results.push(result);
@@ -80,18 +81,23 @@ async function scanUrls(urls){
 }
 
 function iReport(r){
-	console.log("####################################");
-	console.log('\x1b[36m%s\x1b[0m', r.pageUrl);
-	console.log('\x1b[36m%s\x1b[0m', r.issues.length + " issues reported.")
-	console.log("####################################");
+
+    const warning = chalk.keyword('orange');
+    const danger = chalk.keyword('red');
+    const info = chalk.keyword('green');
+
+	console.log( warning("####################################") );
+	console.log( warning("## ") + info(r.pageUrl) );
+	console.log( warning("## ") + danger(`${r.issues.length} issues reports.`) )
+	
 	console.log("");
 	r.issues.forEach(function(entry, i) {
-		console.log('\x1b[31m%s\x1b[0m', 'Issue ' + (i+1) + ' of ' + r.issues.length + ' for ' + '\x1b[36m' + r.pageUrl)
+		console.log( danger(`Issue ${(i+1)} of ${r.issues.length} for `) + info(`${r.pageUrl}`) )
 		console.log(entry.message); 
 		console.log("");
 		console.log(entry.selector);
 		console.log("");
-		console.log("----------");
-		console.log("");
-	});
+    });
+    console.log("");
+    console.log("");
 }
