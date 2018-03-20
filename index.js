@@ -4,28 +4,27 @@ const {parseString} = require('xml2js');
 const {promisify} = require('util');
 const puppeteer = require('puppeteer');
 const chalk = require('chalk');
-
+let fs = require('fs');
+let thelog;
 
 
 async function main(){
     const xml = await getUrlsFromSitemap('https://www.unum.com/sitemap_unum.xml');
     const parsedXml = await parseXml(xml);
-    const urls = parsedXml.urlset.url.map(function(url){
+    let urls = parsedXml.urlset.url.map(function(url){
         return url.loc[0];
     })
 
     // urls is an array of url strings
 
-    // let's make a smaller sample of all those urls for faster testing
-    const urlsSample = urls.splice(0,3);
+    // let's make a smaller sample of all those urls for faster testing (optional. comment below line to run entire sitemap)
+    urls = urls.splice(0,3);
 
     // display the urls we will attempt to process
-    console.log(urlsSample);
-    // console.log(urls);
+    console.log(urls);
 
     //console.log(await scanUrls(urls));
-    //console.log(await scanUrls(urlsSample));
-    await scanUrls(urlsSample);
+    await scanUrls(urls);
 }
 
 main();
@@ -61,7 +60,6 @@ async function scanUrls(urls){
 
             const url = urls[x];
             // console.log(url);
-            //const result = await pa11y(url);
             const result = await pa11y(url, {browser: browser});
             results.push(result);
             // console.log(result);
@@ -77,6 +75,7 @@ async function scanUrls(urls){
         }
     }
     await browser.close();
+    saveOutputToFile(thelog);
     return results;
 }
 
@@ -86,18 +85,43 @@ function iReport(r){
     const danger = chalk.keyword('red');
     const info = chalk.keyword('green');
 
-	console.log( warning("####################################") );
-	console.log( warning("## ") + info(r.pageUrl) );
-	console.log( warning("## ") + danger(`${r.issues.length} issues reports.`) )
+    
+
+	// console.log( warning("####################################") );
+	// console.log( warning("## ") + info(r.pageUrl) );
+	// console.log( warning("## ") + danger(`${r.issues.length} issues reported.`) )
 	
-	console.log("");
+	// console.log("");
+	// r.issues.forEach(function(entry, i) {
+	// 	console.log( danger(`Issue ${(i+1)} of ${r.issues.length} for `) + info(`${r.pageUrl}`) )
+	// 	console.log(entry.message); 
+	// 	console.log("");
+	// 	console.log(entry.selector);
+	// 	console.log("");
+    // });
+    // console.log("");
+    // console.log("");
+
+
+    
+    thelog += warning("####################################");
+	thelog += warning("## ") + info(r.pageUrl) ;
+	thelog += warning("## ") + danger(`${r.issues.length} issues reported.`) 
+	
+	thelog +="";
 	r.issues.forEach(function(entry, i) {
-		console.log( danger(`Issue ${(i+1)} of ${r.issues.length} for `) + info(`${r.pageUrl}`) )
-		console.log(entry.message); 
-		console.log("");
-		console.log(entry.selector);
-		console.log("");
+		thelog += danger(`Issue ${(i+1)} of ${r.issues.length} for `) + info(`${r.pageUrl}`) 
+		thelog +=entry.message; 
+		thelog +="";
+		thelog +=entry.selector;
+		thelog +="";
     });
-    console.log("");
-    console.log("");
+    thelog +="";
+    thelog +="";
+}
+
+function saveOutputToFile(thelog){
+    fs.writeFile('output.txt', thelog, function(err) {
+        if (err) throw err;
+    });
 }
