@@ -124,7 +124,11 @@ async function scanUrls(urls) {
             // console.log(url);
             const result = await pa11y(url, { browser: browser });
             results.push(result);
-            // console.log(result);
+            process.stdout.clearLine(); // clear current text
+            process.stdout.cursorTo(0);
+            process.stdout.write(
+                `Complete: ${(x / urls.length * 100).toFixed(2)}%`
+            );
             iReport(result);
         } catch (e) {
             console.log(e);
