@@ -32,11 +32,10 @@ if (args.length > 0) {
         sitemapTarget = args[0].trim();
     }
     // check for sample mode
-    // const sampleSize = args.filter(arg => arg.startsWith('--sample'));
     const sampleArgLoc = args.indexOf("--sample");
 
     if (sampleArgLoc > -1) {
-        // console.log(`args.length: ${args.length}  sampleArgLoc: ${sampleArgLoc}`);
+
         if (sampleArgLoc === args.length - 1) {
             // console.log(`--sample is the last argument`);
             sampleIsActivated = true;
@@ -50,7 +49,6 @@ if (args.length > 0) {
             console.log(
                 `Mode sample-size activated!  Grabbing the first ${sampleAmount} items.`
             );
-            // console.log(`sampleAmount value is ${sampleAmount}`);
         } else if (sampleArgLoc === args.length - 3) {
             // console.log(`--sample has two following arguments`);
             sampleIsActivated = true;
@@ -59,7 +57,6 @@ if (args.length > 0) {
             console.log(
                 `Mode sample-size activated!  Grabbing ${sampleAmount} items starting at item ${sampleStart}.`
             );
-            // console.log(`sampleAmount value is ${sampleAmount}  sampleStart is ${sampleStart}`);
         }
     }
 }
