@@ -1,80 +1,75 @@
-const pa11y = require('pa11y');
-const rp = require('request-promise');
-const {parseString} = require('xml2js');
-const {promisify} = require('util');
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+const pa11y = require("pa11y");
+const rp = require("request-promise");
+const { parseString } = require("xml2js");
+const { promisify } = require("util");
+const puppeteer = require("puppeteer");
+const fs = require("fs");
 
 const timeStampBegin = getTimeStamp();
 let timeStampEnd = null;
 let thelog = prepHtml();
-let sitemapTarget = 'https://www.unum.com/sitemap_unum.xml'; // default
+let sitemapTarget = "https://www.unum.com/sitemap_unum.xml"; // default
 
 let sampleIsActivated = false;
-let sampleStart = 0;  // defaults to start of xml file
+let sampleStart = 0; // defaults to start of xml file
 let sampleAmount = 3; // defaults to 3 items
 
 var args = process.argv.slice(2);
-if (args.length > 0){
-    if (args[0] === 'unum'){
-        sitemapTarget = 'https://www.unum.com/sitemap_unum.xml';
-    }
-    else if (args[0] === 'unum-dev'){
-        sitemapTarget = 'http://dev1.unum.com/sitemap_unum.xml';
-    }
-    else if (args[0] === 'unum-acpt'){
-        sitemapTarget = 'http://acpt.unum.com/sitemap_unum.xml';
-    }
-    else if (args[0] === 'colonial'){
-        sitemapTarget = 'https://www.coloniallife.com/sitemap_colonial.xml';
-    }
-    else if (args[0] === 'colonial-dev'){
-        sitemapTarget = 'http://dev1.unum.com/sitemap_colonial.xml';
-    }
-    else if (args[0] === 'colonial-acpt'){
-        sitemapTarget = 'http://acpt.unum.com/sitemap_colonial.xml';
-    }
-    else if (args[0].endsWith('.xml')){
+if (args.length > 0) {
+    if (args[0] === "unum") {
+        sitemapTarget = "https://www.unum.com/sitemap_unum.xml";
+    } else if (args[0] === "unum-dev") {
+        sitemapTarget = "http://dev1.unum.com/sitemap_unum.xml";
+    } else if (args[0] === "unum-acpt") {
+        sitemapTarget = "http://acpt.unum.com/sitemap_unum.xml";
+    } else if (args[0] === "colonial") {
+        sitemapTarget = "https://www.coloniallife.com/sitemap_colonial.xml";
+    } else if (args[0] === "colonial-dev") {
+        sitemapTarget = "http://dev1.unum.com/sitemap_colonial.xml";
+    } else if (args[0] === "colonial-acpt") {
+        sitemapTarget = "http://acpt.unum.com/sitemap_colonial.xml";
+    } else if (args[0].endsWith(".xml")) {
         sitemapTarget = args[0].trim();
     }
     // check for sample mode
     // const sampleSize = args.filter(arg => arg.startsWith('--sample'));
-    const sampleArgLoc = args.indexOf('--sample');
-    
-    if (sampleArgLoc > -1){
+    const sampleArgLoc = args.indexOf("--sample");
+
+    if (sampleArgLoc > -1) {
         // console.log(`args.length: ${args.length}  sampleArgLoc: ${sampleArgLoc}`);
-        if (sampleArgLoc ===  args.length-1){ 
+        if (sampleArgLoc === args.length - 1) {
             // console.log(`--sample is the last argument`);
             sampleIsActivated = true;
-            console.log(`Mode sample-size activated!  Grabbing the first three items.`);
-        }
-        else if (sampleArgLoc ===  args.length-2){ 
+            console.log(
+                "Mode sample-size activated!  Grabbing the first three items."
+            );
+        } else if (sampleArgLoc === args.length - 2) {
             // console.log(`--sample has one following argument`);
             sampleIsActivated = true;
             sampleAmount = args[sampleArgLoc + 1];
-            console.log(`Mode sample-size activated!  Grabbing the first ${sampleAmount} items.`);
+            console.log(
+                `Mode sample-size activated!  Grabbing the first ${sampleAmount} items.`
+            );
             // console.log(`sampleAmount value is ${sampleAmount}`);
-        }
-        else if (sampleArgLoc ===  args.length-3){ 
+        } else if (sampleArgLoc === args.length - 3) {
             // console.log(`--sample has two following arguments`);
             sampleIsActivated = true;
             sampleAmount = args[sampleArgLoc + 1];
             sampleStart = args[sampleArgLoc + 2];
-            console.log(`Mode sample-size activated!  Grabbing ${sampleAmount} items starting at item ${sampleStart}.`);
+            console.log(
+                `Mode sample-size activated!  Grabbing ${sampleAmount} items starting at item ${sampleStart}.`
+            );
             // console.log(`sampleAmount value is ${sampleAmount}  sampleStart is ${sampleStart}`);
         }
     }
-    
-
 }
 console.log(`Attempting to run Pa11y scan on ${sitemapTarget} ...`);
-thelog += `<h1>Automated Pa11y Scan</h1>`;
+thelog += "<h1>Automated Pa11y Scan</h1>";
 thelog += `<div><strong>Target:</strong> ${sitemapTarget}</div>`;
 thelog += `<div><strong>Started:</strong> ${timeStampBegin}</div>`;
-thelog += `<hr>`;
+thelog += "<hr>";
 
-
-async function main(){
+async function main() {
     const xml = await getUrlsFromSitemap(sitemapTarget);
     const parsedXml = await parseXml(xml);
     let urls = parsedXml.urlset.url.map(function(url) {
@@ -84,9 +79,9 @@ async function main(){
     // urls is an array of url strings
 
     // let's make a smaller sample of all those urls for faster testing (optional. comment below line to run entire sitemap)
-    if (sampleIsActivated){
+    if (sampleIsActivated) {
         // urls = urls.splice(0,3);
-        urls = urls.splice(sampleStart,sampleAmount);
+        urls = urls.splice(sampleStart, sampleAmount);
     }
 
     // display the urls we will attempt to process
@@ -143,48 +138,60 @@ async function scanUrls(urls) {
     timeStampEnd = getTimeStamp();
     console.log(`Writing report to ${timeStampEnd}_output.html...`);
     saveOutputToFile(thelog);
-    thelog += '</body></html>';
+    thelog += "</body></html>";
     return results;
 }
 
-
-function iReport(r){
-	thelog += `\r\n\r\n<div class="log-issue-page"><a href="${r.pageUrl}">${r.pageUrl}</a></div>` + '\r\n';
-	thelog += `<div class="log-issue-summary">${r.issues.length} issues reported.</div>` + '\r\n';
-	r.issues.forEach(function(entry, i) {
-		thelog += `<div class="log-issue-item-count"><strong>Issue ${(i+1)} of ${r.issues.length}</strong> for <span class="item-url">${r.pageUrl}</span></div>` + '\r\n';
-		thelog += `<div class="log-issue-item-message">${entry.message}</div>` + '\r\n'; 
-		thelog += `<div class="log-issue-item-selector">${entry.selector}</div>` + '\r\n\r\n'; 
+function iReport(r) {
+    thelog +=
+        `\r\n\r\n<div class="log-issue-page"><a href="${r.pageUrl}">${
+            r.pageUrl
+        }</a></div>` + "\r\n";
+    thelog +=
+        `<div class="log-issue-summary">${
+            r.issues.length
+        } issues reported.</div>` + "\r\n";
+    r.issues.forEach(function(entry, i) {
+        thelog +=
+            `<div class="log-issue-item-count"><strong>Issue ${i + 1} of ${
+                r.issues.length
+            }</strong> for <span class="item-url">${r.pageUrl}</span></div>` +
+            "\r\n";
+        thelog +=
+            `<div class="log-issue-item-message">${entry.message}</div>` +
+            "\r\n";
+        thelog +=
+            `<div class="log-issue-item-selector">${entry.selector}</div>` +
+            "\r\n\r\n";
     });
-    thelog += `<hr>` + '\r\n';
+    thelog += "<hr>" + "\r\n";
 }
 
-function saveOutputToFile(thelog){
+function saveOutputToFile(thelog) {
     fs.writeFile(`${timeStampEnd}_output.html`, thelog, function(err) {
         if (err) throw err;
     });
 }
 
-function getTimeStamp(){
+function getTimeStamp() {
     let now = new Date();
     let YY = now.getFullYear();
-    let MM = twodigit( now.getMonth() + 1 );
-    let DD = twodigit( now.getDate() );
-    var HH = twodigit( now.getHours() );
-    var MI = twodigit( now.getMinutes() );
-    var SS = twodigit( now.getSeconds() );
+    let MM = twodigit(now.getMonth() + 1);
+    let DD = twodigit(now.getDate());
+    var HH = twodigit(now.getHours());
+    var MI = twodigit(now.getMinutes());
+    var SS = twodigit(now.getSeconds());
     return `${YY}-${MM}-${DD}_${HH}:${MI}:${SS}`;
 
-    function twodigit(x){ // this little guy is just for this function
+    function twodigit(x) {
+        // this little guy is just for this function
         x = ("0" + x).slice(-2);
         return x;
     }
 }
 
-
-
-function prepHtml(){
-let x=`<!DOCTYPE html>
+function prepHtml() {
+    let x = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -208,5 +215,5 @@ let x=`<!DOCTYPE html>
     </style>
 </head>
 <body>`;
-return x;
+    return x;
 }
