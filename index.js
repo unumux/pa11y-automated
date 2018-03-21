@@ -35,7 +35,6 @@ if (args.length > 0) {
     const sampleArgLoc = args.indexOf("--sample");
 
     if (sampleArgLoc > -1) {
-
         if (sampleArgLoc === args.length - 1) {
             // console.log(`--sample is the last argument`);
             sampleIsActivated = true;
@@ -137,7 +136,7 @@ async function scanUrls(urls) {
     }
     await browser.close();
     timeStampEnd = getTimeStamp();
-    console.log(`Writing report to ${timeStampEnd}_output.html...`);
+    console.log(`\nWriting report to ${timeStampEnd}_output.html...`);
     saveOutputToFile(thelog);
     thelog += "</body></html>";
     return results;
