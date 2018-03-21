@@ -6,8 +6,6 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 const timeStampBegin = getTimeStamp();
-let timeStampEnd = null;
-let thelog = prepHtml();
 let sitemapTarget = "https://www.unum.com/sitemap_unum.xml"; // default
 
 let sampleIsActivated = false;
@@ -16,75 +14,71 @@ let sampleAmount = 3; // defaults to 3 items
 
 var args = process.argv.slice(2);
 if (args.length > 0) {
-    if (args[0] === "unum") {
-        sitemapTarget = "https://www.unum.com/sitemap_unum.xml";
-    } else if (args[0] === "unum-dev") {
-        sitemapTarget = "http://dev1.unum.com/sitemap_unum.xml";
-    } else if (args[0] === "unum-acpt") {
-        sitemapTarget = "http://acpt.unum.com/sitemap_unum.xml";
-    } else if (args[0] === "colonial") {
-        sitemapTarget = "https://www.coloniallife.com/sitemap_colonial.xml";
-    } else if (args[0] === "colonial-dev") {
-        sitemapTarget = "http://dev1.unum.com/sitemap_colonial.xml";
-    } else if (args[0] === "colonial-acpt") {
-        sitemapTarget = "http://acpt.unum.com/sitemap_colonial.xml";
-    } else if (args[0].endsWith(".xml")) {
-        sitemapTarget = args[0].trim();
-    }
-    // check for sample mode
-    const sampleArgLoc = args.indexOf("--sample");
+  if (args[0] === "unum") {
+    sitemapTarget = "https://www.unum.com/sitemap_unum.xml";
+  } else if (args[0] === "unum-dev") {
+    sitemapTarget = "http://dev1.unum.com/sitemap_unum.xml";
+  } else if (args[0] === "unum-acpt") {
+    sitemapTarget = "http://acpt.unum.com/sitemap_unum.xml";
+  } else if (args[0] === "colonial") {
+    sitemapTarget = "https://www.coloniallife.com/sitemap_colonial.xml";
+  } else if (args[0] === "colonial-dev") {
+    sitemapTarget = "http://dev1.unum.com/sitemap_colonial.xml";
+  } else if (args[0] === "colonial-acpt") {
+    sitemapTarget = "http://acpt.unum.com/sitemap_colonial.xml";
+  } else if (args[0].endsWith(".xml")) {
+    sitemapTarget = args[0].trim();
+  }
+  // check for sample mode
+  const sampleArgLoc = args.indexOf("--sample");
 
-    if (sampleArgLoc > -1) {
-        if (sampleArgLoc === args.length - 1) {
-            // console.log(`--sample is the last argument`);
-            sampleIsActivated = true;
-            console.log(
-                "Mode sample-size activated!  Grabbing the first three items."
-            );
-        } else if (sampleArgLoc === args.length - 2) {
-            // console.log(`--sample has one following argument`);
-            sampleIsActivated = true;
-            sampleAmount = args[sampleArgLoc + 1];
-            console.log(
-                `Mode sample-size activated!  Grabbing the first ${sampleAmount} items.`
-            );
-        } else if (sampleArgLoc === args.length - 3) {
-            // console.log(`--sample has two following arguments`);
-            sampleIsActivated = true;
-            sampleAmount = args[sampleArgLoc + 1];
-            sampleStart = args[sampleArgLoc + 2];
-            console.log(
-                `Mode sample-size activated!  Grabbing ${sampleAmount} items starting at item ${sampleStart}.`
-            );
-        }
+  if (sampleArgLoc > -1) {
+    if (sampleArgLoc === args.length - 1) {
+      // console.log(`--sample is the last argument`);
+      sampleIsActivated = true;
+      console.log(
+        "Mode sample-size activated!  Grabbing the first three items."
+      );
+    } else if (sampleArgLoc === args.length - 2) {
+      // console.log(`--sample has one following argument`);
+      sampleIsActivated = true;
+      sampleAmount = args[sampleArgLoc + 1];
+      console.log(
+        `Mode sample-size activated!  Grabbing the first ${sampleAmount} items.`
+      );
+    } else if (sampleArgLoc === args.length - 3) {
+      // console.log(`--sample has two following arguments`);
+      sampleIsActivated = true;
+      sampleAmount = args[sampleArgLoc + 1];
+      sampleStart = args[sampleArgLoc + 2];
+      console.log(
+        `Mode sample-size activated!  Grabbing ${sampleAmount} items starting at item ${sampleStart}.`
+      );
     }
+  }
 }
 console.log(`Attempting to run Pa11y scan on ${sitemapTarget} ...`);
-thelog += `<h1>Automated Pa11y Scan</h1>`;
-thelog += `<div><strong>Target:</strong> ${sitemapTarget}</div>`;
-thelog += `<div><strong>Started:</strong> ${timeStampBegin}</div>`;
-thelog += "<hr>";
 
 async function main() {
-    const xml = await getUrlsFromSitemap(sitemapTarget);
-    const parsedXml = await parseXml(xml);
-    let urls = parsedXml.urlset.url.map(function(url) {
-        return url.loc[0];
-    });
+  const xml = await getUrlsFromSitemap(sitemapTarget);
+  const parsedXml = await parseXml(xml);
+  let urls = parsedXml.urlset.url.map(function(url) {
+    return url.loc[0];
+  });
 
-    // urls is an array of url strings
+  // urls is an array of url strings
 
-    // let's make a smaller sample of all those urls for faster testing (optional. comment below line to run entire sitemap)
-    if (sampleIsActivated) {
-        // urls = urls.splice(0,3);
-        urls = urls.splice(sampleStart, sampleAmount);
-    }
+  // let's make a smaller sample of all those urls for faster testing (optional. comment below line to run entire sitemap)
+  if (sampleIsActivated) {
+    // urls = urls.splice(0,3);
+    urls = urls.splice(sampleStart, sampleAmount);
+  }
 
-    // display the urls we will attempt to process
-    console.log(urls);
+  // display the urls we will attempt to process
+  console.log(urls);
 
-    //console.log(await scanUrls(urls));
-    await scanUrls(urls);
+  //console.log(await scanUrls(urls));
+  await scanUrls(urls);
 }
 
 main();
@@ -104,94 +98,96 @@ const parseXml = promisify(parseString);
 // }
 
 async function getUrlsFromSitemap(url) {
-    const results = await rp.get(url);
-    return results;
+  const results = await rp.get(url);
+  return results;
 }
 
 async function scanUrls(urls) {
-    const results = [];
-    let browser = await puppeteer.launch({
-        ignoreHTTPSErrors: true
-    });
+  const results = [];
+  let browser = await puppeteer.launch({
+    ignoreHTTPSErrors: true
+  });
 
-    for (let x = 0; x < urls.length; x++) {
-        try {
-            const url = urls[x];
-            // console.log(url);
-            const result = await pa11y(url, { browser: browser });
-            results.push(result);
-            process.stdout.clearLine(); // clear current text
-            process.stdout.cursorTo(0);
-            process.stdout.write(
-                `Complete: ${(x / urls.length * 100).toFixed(2)}%`
-            );
-            iReport(result);
-        } catch (e) {
-            console.log(e);
+  let thelog = prepHtml();
+  thelog += `<h1>Automated Pa11y Scan</h1>`;
+  thelog += `<div><strong>Target:</strong> ${sitemapTarget}</div>`;
+  thelog += `<div><strong>Started:</strong> ${timeStampBegin}</div>`;
+  thelog += "<hr>";
 
-            if (browser) {
-                return await browser.close();
-            }
-        }
+  for (let x = 0; x < urls.length; x++) {
+    try {
+      const url = urls[x];
+      // console.log(url);
+      const result = await pa11y(url, { browser: browser });
+      results.push(result);
+      process.stdout.clearLine(); // clear current text
+      process.stdout.cursorTo(0);
+      process.stdout.write(`Complete: ${(x / urls.length * 100).toFixed(2)}%`);
+      thelog += iReport(result);
+    } catch (e) {
+      console.log(e);
+
+      if (browser) {
+        return await browser.close();
+      }
     }
-    await browser.close();
-    timeStampEnd = getTimeStamp();
-    console.log(`\nWriting report to ${timeStampEnd}_output.html...`);
-    saveOutputToFile(thelog);
-    thelog += "</body></html>";
-    return results;
+  }
+  await browser.close();
+  let timeStampEnd = getTimeStamp();
+  console.log(`\nWriting report to ${timeStampEnd}_output.html...`);
+  saveOutputToFile(thelog, timeStampEnd);
+  thelog += "</body></html>";
+  return results;
 }
 
 function iReport(r) {
+  let thelog =
+    `\r\n\r\n<div class="log-issue-page"><a target="_blank" href="${
+      r.pageUrl
+    }">${r.pageUrl}</a></div>` + "\r\n";
+  thelog +=
+    `<div class="log-issue-summary">${r.issues.length} issues reported.</div>` +
+    "\r\n";
+  r.issues.forEach(function(entry, i) {
     thelog +=
-        `\r\n\r\n<div class="log-issue-page"><a target="_blank" href="${
-            r.pageUrl
-        }">${r.pageUrl}</a></div>` + "\r\n";
+      `<div class="log-issue-item-count"><strong>Issue ${i + 1} of ${
+        r.issues.length
+      }</strong> for <span class="item-url">${r.pageUrl}</span></div>` + "\r\n";
     thelog +=
-        `<div class="log-issue-summary">${
-            r.issues.length
-        } issues reported.</div>` + "\r\n";
-    r.issues.forEach(function(entry, i) {
-        thelog +=
-            `<div class="log-issue-item-count"><strong>Issue ${i + 1} of ${
-                r.issues.length
-            }</strong> for <span class="item-url">${r.pageUrl}</span></div>` +
-            "\r\n";
-        thelog +=
-            `<div class="log-issue-item-message">${entry.message}</div>` +
-            "\r\n";
-        thelog +=
-            `<div class="log-issue-item-selector">${entry.selector}</div>` +
-            "\r\n\r\n";
-    });
-    thelog += "<hr>" + "\r\n";
+      `<div class="log-issue-item-message">${entry.message}</div>` + "\r\n";
+    thelog +=
+      `<div class="log-issue-item-selector">${entry.selector}</div>` +
+      "\r\n\r\n";
+  });
+  thelog += "<hr>" + "\r\n";
+  return thelog;
 }
 
-function saveOutputToFile(thelog) {
-    fs.writeFile(`${timeStampEnd}_output.html`, thelog, function(err) {
-        if (err) throw err;
-    });
+function saveOutputToFile(thelog, timeStampEnd) {
+  fs.writeFile(`${timeStampEnd}_output.html`, thelog, function(err) {
+    if (err) throw err;
+  });
 }
 
 function getTimeStamp() {
-    let now = new Date();
-    let YY = now.getFullYear();
-    let MM = twodigit(now.getMonth() + 1);
-    let DD = twodigit(now.getDate());
-    var HH = twodigit(now.getHours());
-    var MI = twodigit(now.getMinutes());
-    var SS = twodigit(now.getSeconds());
-    return `${YY}-${MM}-${DD}_${HH}:${MI}:${SS}`;
+  let now = new Date();
+  let YY = now.getFullYear();
+  let MM = twodigit(now.getMonth() + 1);
+  let DD = twodigit(now.getDate());
+  var HH = twodigit(now.getHours());
+  var MI = twodigit(now.getMinutes());
+  var SS = twodigit(now.getSeconds());
+  return `${YY}-${MM}-${DD}_${HH}:${MI}:${SS}`;
 
-    function twodigit(x) {
-        // this little guy is just for this function
-        x = ("0" + x).slice(-2);
-        return x;
-    }
+  function twodigit(x) {
+    // this little guy is just for this function
+    x = ("0" + x).slice(-2);
+    return x;
+  }
 }
 
 function prepHtml() {
-    let x = `<!DOCTYPE html>
+  let x = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -215,5 +211,5 @@ function prepHtml() {
     </style>
 </head>
 <body>`;
-    return x;
+  return x;
 }
