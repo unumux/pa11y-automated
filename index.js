@@ -46,7 +46,7 @@ if (args.length > 0){
         if (sampleArgLoc ===  args.length-1){ 
             // console.log(`--sample is the last argument`);
             sampleIsActivated = true;
-            console.log(`Mode sample-size activated!  Grabbimg the first three items.`);
+            console.log(`Mode sample-size activated!  Grabbing the first three items.`);
         }
         else if (sampleArgLoc ===  args.length-2){ 
             // console.log(`--sample has one following argument`);
