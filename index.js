@@ -120,11 +120,11 @@ function saveOutputToFile(thelog) {
     let MM = now.getMonth() + 1;
     let DD = now.getDate();
     var HH = now.getHours();
-    var MM = now.getMinutes();
+    var mm = now.getMinutes();
     var SS = now.getSeconds();
 
     fs.writeFile(
-        `${YY}-${MM}-${DD}_${HH}-${MM}-${SS}_output.txt`,
+        `${YY}-${MM}-${DD}_${HH}-${mm}-${SS}_output.txt`,
         thelog,
         function(err) {
             if (err) throw err;
