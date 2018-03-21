@@ -77,9 +77,9 @@ thelog += `<hr>`;
 async function main(){
     const xml = await getUrlsFromSitemap(sitemapTarget);
     const parsedXml = await parseXml(xml);
-    let urls = parsedXml.urlset.url.map(function(url){
+    let urls = parsedXml.urlset.url.map(function(url) {
         return url.loc[0];
-    })
+    });
 
     // urls is an array of url strings
 
@@ -98,7 +98,6 @@ async function main(){
 
 main();
 
-
 const parseXml = promisify(parseString);
 // function parseXml(xml){
 //     return new Promise(function(resolve, reject){
@@ -113,34 +112,31 @@ const parseXml = promisify(parseString);
 //     });
 // }
 
-async function getUrlsFromSitemap(url){
+async function getUrlsFromSitemap(url) {
     const results = await rp.get(url);
     return results;
 }
 
-async function scanUrls(urls){
+async function scanUrls(urls) {
     const results = [];
     let browser = await puppeteer.launch({
         ignoreHTTPSErrors: true
     });
-    
-    for (let x=0; x<urls.length; x++){
-        try{
 
+    for (let x = 0; x < urls.length; x++) {
+        try {
             const url = urls[x];
             // console.log(url);
-            const result = await pa11y(url, {browser: browser});
+            const result = await pa11y(url, { browser: browser });
             results.push(result);
             // console.log(result);
             iReport(result);
-        }
-        catch(e){
+        } catch (e) {
             console.log(e);
 
             if (browser) {
                 return await browser.close();
             }
-
         }
     }
     await browser.close();
@@ -150,6 +146,7 @@ async function scanUrls(urls){
     thelog += '</body></html>';
     return results;
 }
+
 
 function iReport(r){
 	thelog += `\r\n\r\n<div class="log-issue-page"><a href="${r.pageUrl}">${r.pageUrl}</a></div>` + '\r\n';
