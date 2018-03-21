@@ -35,7 +35,6 @@ if (args.length > 0) {
     const sampleArgLoc = args.indexOf("--sample");
 
     if (sampleArgLoc > -1) {
-
         if (sampleArgLoc === args.length - 1) {
             // console.log(`--sample is the last argument`);
             sampleIsActivated = true;
@@ -121,7 +120,11 @@ async function scanUrls(urls) {
             // console.log(url);
             const result = await pa11y(url, { browser: browser });
             results.push(result);
-            // console.log(result);
+            process.stdout.clearLine(); // clear current text
+            process.stdout.cursorTo(0);
+            process.stdout.write(
+                `Complete: ${(x / urls.length * 100).toFixed(2)}%`
+            );
             iReport(result);
         } catch (e) {
             console.log(e);
@@ -133,7 +136,7 @@ async function scanUrls(urls) {
     }
     await browser.close();
     timeStampEnd = getTimeStamp();
-    console.log(`Writing report to ${timeStampEnd}_output.html...`);
+    console.log(`\nWriting report to ${timeStampEnd}_output.html...`);
     saveOutputToFile(thelog);
     thelog += "</body></html>";
     return results;
@@ -141,9 +144,9 @@ async function scanUrls(urls) {
 
 function iReport(r) {
     thelog +=
-        `\r\n\r\n<div class="log-issue-page"><a href="${r.pageUrl}">${
+        `\r\n\r\n<div class="log-issue-page"><a target="_blank" href="${
             r.pageUrl
-        }</a></div>` + "\r\n";
+        }">${r.pageUrl}</a></div>` + "\r\n";
     thelog +=
         `<div class="log-issue-summary">${
             r.issues.length
