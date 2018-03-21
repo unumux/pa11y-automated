@@ -144,9 +144,9 @@ async function scanUrls(urls) {
 
 function iReport(r) {
     thelog +=
-        `\r\n\r\n<div class="log-issue-page"><a href="${r.pageUrl}">${
+        `\r\n\r\n<div class="log-issue-page"><a target="_blank" href="${
             r.pageUrl
-        }</a></div>` + "\r\n";
+        }">${r.pageUrl}</a></div>` + "\r\n";
     thelog +=
         `<div class="log-issue-summary">${
             r.issues.length
