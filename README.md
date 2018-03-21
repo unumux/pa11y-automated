@@ -3,7 +3,7 @@ This is for creating a more automated approach to using the pa11y accessibility 
 
 ## Usage
 
-* node index.js
+* `node index.js`
 
 The default will target the unum production sitemap.  However you can quickly target others with:
 

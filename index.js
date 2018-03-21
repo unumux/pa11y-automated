@@ -61,7 +61,7 @@ if (args.length > 0) {
     }
 }
 console.log(`Attempting to run Pa11y scan on ${sitemapTarget} ...`);
-thelog += "<h1>Automated Pa11y Scan</h1>";
+thelog += `<h1>Automated Pa11y Scan</h1>`;
 thelog += `<div><strong>Target:</strong> ${sitemapTarget}</div>`;
 thelog += `<div><strong>Started:</strong> ${timeStampBegin}</div>`;
 thelog += "<hr>";
