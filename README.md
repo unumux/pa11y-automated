@@ -20,8 +20,8 @@ Quite often you will only want to scan a sample selection from all of the urls i
 
 In the above examples:
 
-* using `--sample` scan's only the first three items in the sitemap.
-* using `--sample <how-many>` scan's the first how-many items in the sitemap.
+* using `--sample` scans only the first three items in the sitemap.
+* using `--sample <how-many>` scans the first how-many items in the sitemap.
 * using `--sample <how-many> <start-here>` scans the first how-many items starting at start-here (zero indexed)
 
 Instead of typing in the url of a sitemap file, you can also use shortcuts below:
