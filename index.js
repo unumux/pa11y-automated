@@ -36,8 +36,8 @@ exports.main = async function(cliInput) {
 
   console.log(`Urls to scan: ${urls}`);
   let pa11yResults = await scanUrls(urls); // run a pa11y scan on each url in the array
-  printResultDetails(pa11yResults);
-  outputResultDetails(pa11yResults, sitemap);
+  printResultDetails(pa11yResults, urls.length, pa11yResults.length);
+  outputResultDetails(pa11yResults, sitemap, urls.length, pa11yResults.length);
 };
 // attempting to call from the hic.js CLI (part 3 of 3)
 //main();
@@ -96,7 +96,7 @@ function printResultNow(r, currentItem, totalItems) {
   );
 }
 
-function printResultDetails(results) {
+function printResultDetails(results, totalUrlCount, totalPageErrorCount) {
   console.log(``);
   console.log(chalk`{magenta ---------------}`);
   console.log(chalk`{magenta Scan Details}`);
@@ -120,9 +120,19 @@ function printResultDetails(results) {
     console.log(chalk`{magenta ---------------}`);
     console.log(``);
   });
+
+  console.log(chalk`{yellow Number of urls scanned: ${totalUrlCount}}`);
+  console.log(
+    chalk`{yellow Number of pages with errors: ${totalPageErrorCount}}`
+  );
 }
 
-function outputResultDetails(results, sitemap) {
+function outputResultDetails(
+  results,
+  sitemap,
+  totalUrlCount,
+  totalPageErrorCount
+) {
   let timeStampEnd = getTimeStamp();
   let x = `<!DOCTYPE html>
 <html lang="en">
@@ -157,6 +167,8 @@ function outputResultDetails(results, sitemap) {
     <h1>Automated Pa11y Scan</h1>
     <div><strong>Target:</strong> ${sitemap}</div>
     <div><strong>Ended:</strong> ${timeStampEnd}</div>
+    <div><strong>Number of urls scanned:</strong> ${totalUrlCount}</div>
+    <div><strong>Number of pages with errors:</strong> ${totalPageErrorCount}</div>
     <hr>`;
   // each page
   results.forEach(function(result, i) {
