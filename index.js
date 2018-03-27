@@ -1,3 +1,5 @@
+var exports = (module.exports = {}); // attempting to call from the hic.js CLI (part 1 of 3)
+
 const rp = require("request-promise"); // fetches remote http call to our target sitemap xml file
 const { promisify } = require("util"); // util to convert callback function into promise for sync/await usage
 const { parseString } = require("xml2js"); // converts xml to JS object string
@@ -8,33 +10,50 @@ const chalk = require("chalk"); // allows colors in terminal output messages
 const fs = require("fs"); // allows JS file system access for creating html output report
 const encode = require("js-htmlencode"); // allows html encoded code instead of actual html in html output report
 
-let sitemap = "https://www.unum.com/sitemap_unum.xml"; // may be cli argument
+// async function main() {
+// attempting to call from the hic.js CLI (part 2 of 3)
+exports.main = async function(cliInput) {
+  let urls = [];
+  let sitemap = null;
 
-let sampleIsActivated = false;
-let sampleStart = 0; // defaults to start of xml file
-let sampleAmount = 3; // defaults to 3 items
+  // check cli for path a) load from local url list; b) load from sitemap; c) array of urls passed in
 
-async function main() {
-  console.log("starting...");
-
-  prepCliOptions(process.argv.slice(2));
-
-  const xml = await getSitemap(sitemap); // use request-promise to get remote xml file of target sitemap
-  const parsedXml = await parseXml(xml); // use xml2js's parseString to convert xml to string of js objects
-  // loop through objects to extract the url node data into an array (because .map returns an array)
-  let urls = parsedXml.urlset.url.map(function(url) {
-    return url.loc[0];
-  });
-  // let's make a smaller sample of all those urls for faster testing (optional. comment below line to run entire sitemap)
-  if (sampleIsActivated) {
-    urls = urls.splice(sampleStart, sampleAmount);
+  // cli with no options = use local list of urls from urls.json
+  if (cliInput.length === 0) {
+    urls = await loadLocalUrlList();
+  } else {
+    // cli with any options = use sitemap
+    sitemap = prepCliSitemap(process.argv.slice(2));
+    const xml = await getSitemap(sitemap); // use request-promise to get remote xml file of target sitemap
+    const parsedXml = await parseXml(xml); // use xml2js's parseString to convert xml to string of js objects
+    // loop through objects to extract the url node data into an array (because .map returns an array)
+    urls = parsedXml.urlset.url.map(function(url) {
+      return url.loc[0];
+    });
+    // apply CLI options to potentially filter the candidate url list
+    urls = prepCliUrls(process.argv.slice(2), urls);
   }
-  console.log(urls);
+
+  console.log(`Urls to scan: ${urls}`);
   let pa11yResults = await scanUrls(urls); // run a pa11y scan on each url in the array
   printResultDetails(pa11yResults);
-  outputResultDetails(pa11yResults);
+  outputResultDetails(pa11yResults, sitemap);
+};
+// attempting to call from the hic.js CLI (part 3 of 3)
+//main();
+
+async function loadLocalUrlList() {
+  try {
+    var data = fs.readFileSync("urls.json", "utf8");
+    let localUrls = JSON.parse(data);
+    if (localUrls.urls.length > 0) {
+      urls = localUrls.urls;
+    }
+    return urls;
+  } catch (e) {
+    console.log("Error reading url array from urls.json:", e.stack);
+  }
 }
-main();
 
 async function getSitemap(url) {
   const results = await rp.get(url);
@@ -103,7 +122,7 @@ function printResultDetails(results) {
   });
 }
 
-function outputResultDetails(results) {
+function outputResultDetails(results, sitemap) {
   let timeStampEnd = getTimeStamp();
   let x = `<!DOCTYPE html>
 <html lang="en">
@@ -126,6 +145,9 @@ function outputResultDetails(results) {
     .item-url{
         color: crimson;
     }
+    .log-issue-item-context{
+        color: teal;
+    }
     .log-issue-item-message{
       color: blue;
     }
@@ -143,7 +165,7 @@ function outputResultDetails(results) {
       x += `<div class="log-issue-item-count"><strong>Issue ${i + 1} of ${
         result.issues.length
       }</strong> for <span class="item-url">${result.pageUrl}</span></div>\r\n
-      <div class="log-issue-item-message">${encode(issue.context)}</div>\r\n
+      <div class="log-issue-item-context">${encode(issue.context)}</div>\r\n
       <div class="log-issue-item-message">${issue.message}</div>\r\n
       <div class="log-issue-item-selector">${issue.selector}</div>\r\n\r\n`;
     });
@@ -176,7 +198,9 @@ function outputResultDetails(results) {
   }
 }
 
-function prepCliOptions(args) {
+function prepCliSitemap(args) {
+  let sitemap = "https://www.unum.com/sitemap_unum.xml"; // default
+
   if (args.length > 0) {
     if (args[0] === "unum") {
       sitemap = "https://www.unum.com/sitemap_unum.xml";
@@ -193,6 +217,16 @@ function prepCliOptions(args) {
     } else if (args[0].endsWith(".xml")) {
       sitemap = args[0].trim();
     }
+  }
+  return sitemap;
+}
+
+function prepCliUrls(args, urls) {
+  let sampleIsActivated = false;
+  let sampleStart = 0; // defaults to start of xml file
+  let sampleAmount = 3; // defaults to 3 items
+
+  if (args.length > 0) {
     // check for sample mode
     const sampleArgLoc = args.indexOf("--sample");
 
@@ -220,5 +254,10 @@ function prepCliOptions(args) {
         );
       }
     }
+
+    if (sampleIsActivated) {
+      urls = urls.splice(sampleStart, sampleAmount);
+    }
+    return urls;
   }
 }
