@@ -10,6 +10,9 @@ const scan = require("./index.js");
 const cli = meow(
   `
     Usage
+      $ ${chalk.yellow("hic")}
+        - run a Hickory accessibility scan on url list from urls.json   
+    
       $ ${chalk.yellow("hic <sitemap-url>")}
         - run a Hickory accessibility scan on the sitemap url 
     
