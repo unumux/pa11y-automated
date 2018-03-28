@@ -8,7 +8,7 @@ This is for creating a more automated approach to using the pa11y accessibility 
 * `hickory unum` OR
 * `hickory colonial`
 
-> If you simply run `hickory` it will look into the local urls.json file for a list of urls to scan.
+> If you simply run `hickory` it will look into the local **urls.json** file for a list of urls to scan.
 
 If you want to scan an entire site using it's sitemap, use `hickory unum` or `hickory colonial`.
 
