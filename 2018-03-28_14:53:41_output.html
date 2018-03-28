@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pa11y Automated Report</title>
+    <style>
+    hr{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    a{
+        color:blue;
+    }
+    .log-issue-item-selector, .log-issue-summary{
+        margin-bottom: .5rem;
+    }
+    .item-url, .log-scan-error{
+        color: crimson;
+    }
+    .log-scan-ignored{
+        color: brown;
+    }
+    .log-issue-item-context{
+        color: teal;
+    }
+    .log-issue-item-message{
+      color: blue;
+    }
+    </style>
+</head>
+<body>
+    <h1>Automated Pa11y Scan</h1>
+    <div><strong>Target:</strong> local urls.json file</div>
+    <div><strong>Ended:</strong> 2018-03-28_14:53:41</div>
+    <div><strong>Number of urls scanned:</strong> 4</div>
+    <div><strong>Number of pages with errors:</strong> 1</div>
+    <hr><h2>Errors scanning these urls (1)</h2><div class="log-scan-error">https://www.unum.com/hbrstudy</div><h2>Urls skipped by matching the ignoredUrlsDuringScan patterns in urls.json (1)</h2><div class="log-scan-ignored">https://www.unum.com/news/yourunumnews-3q2014/davidleopold</div><hr><div class="log-issue-item-count"><strong>Issue 1 of 1</strong> for <span class="item-url">https://www.unum.com/</span></div>
+
+      <div class="log-issue-item-context">&lt;img src=&quot;https://www.pages02.net/WTS/event.jpeg?accesskey=1886548-10a4829e8d1-f528764d624db129b32c21fbca0cb8d6&amp;amp;v=1.3&amp;amp;isNewSession=1&amp;amp;type=pageview&amp;amp;isNewVisitor=1&amp;amp;sessionGUID=4da4617b-50ae-9050-cbe0-8076d6d49175&amp;amp;webSyncID=a5bc7...</div>
+
+      <div class="log-issue-item-message">Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.</div>
+
+      <div class="log-issue-item-selector">html > body > img:nth-child(22)</div>
+
+<hr></body></html>

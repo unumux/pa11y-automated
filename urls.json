@@ -1,7 +1,16 @@
 {
   "urls": [
     "https://www.unum.com",
-    "https://www.coloniallife.com",
-    "https://www.unum.com/employees"
+    "https://www.unum.com/hbrstudy",
+    "https://www.unum.com/news/yourunumnews-3q2014/davidleopold",
+    "https://www.coloniallife.com"
+  ],
+
+  "ignoreIfContains": [
+    "unum.com/news/",
+    "unum.com/goto/",
+    "unum.com/brokers/legislativeupdates",
+    "respond.proxy.js",
+    "unum.com/eeportal"
   ]
 }

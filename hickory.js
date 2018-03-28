@@ -10,16 +10,16 @@ const scan = require("./index.js");
 const cli = meow(
   `
     Usage
-      $ ${chalk.yellow("hic")}
+      $ ${chalk.yellow("hickory")}
         - run a Hickory accessibility scan on url list from urls.json   
     
-      $ ${chalk.yellow("hic <sitemap-url>")}
+      $ ${chalk.yellow("hickory <sitemap-url>")}
         - run a Hickory accessibility scan on the sitemap url 
     
-      $ ${chalk.yellow("hic unum")}
+      $ ${chalk.yellow("hickory unum")}
         - run a Hickory accessibility scan on the production unum sitemap 
 
-      $ ${chalk.yellow("hic colonial")}
+      $ ${chalk.yellow("hickory colonial")}
         - run a Hickory accessibility scan on the production colonial sitemap   
  
     Options
@@ -28,8 +28,8 @@ const cli = meow(
       --sample <n1> <n2>   Scan the first n1 urls starting at url #n2 (zero based)
 
     Examples
-      hic unum --sample 5         // scans the first 5 urls of the unum.com sitemap
-      hic colonial --sample 3 20  // scans 3 urls of coloniallife.com starting at #20
+      hickory unum --sample 5         // scans the first 5 urls of the unum.com sitemap
+      hickory colonial --sample 3 20  // scans 3 urls of coloniallife.com starting at #20
 
     Other shortcuts
       unum-dev unum-acpt unum
@@ -38,9 +38,10 @@ const cli = meow(
 `,
   {
     alias: {
-      v: "version",
-      s: "start",
-      run: "start"
+      // v: "version",
+      hi: "hickory"
+      // s: "start",
+      // run: "start"
     }
   }
 );

@@ -1,4 +1,4 @@
-var exports = (module.exports = {}); // attempting to call from the hic.js CLI (part 1 of 3)
+var exports = (module.exports = {}); // attempting to call from the hickory.js CLI (part 1 of 3)
 
 const rp = require("request-promise"); // fetches remote http call to our target sitemap xml file
 const { promisify } = require("util"); // util to convert callback function into promise for sync/await usage
@@ -11,16 +11,22 @@ const fs = require("fs"); // allows JS file system access for creating html outp
 const encode = require("js-htmlencode"); // allows html encoded code instead of actual html in html output report
 
 // async function main() {
-// attempting to call from the hic.js CLI (part 2 of 3)
+// attempting to call from the hickory.js CLI (part 2 of 3)
 exports.main = async function(cliInput) {
   let urls = [];
-  let sitemap = null;
+  let blacklist = []; // skips url if it contains any of the ignoreIfContains entries in the urls.json file.
+  let ignoredUrlsDuringScan = []; // the urls that were affected by ignoreIfContains matches
+  let urlsThatFailedDuringScan = [];
+  let sitemap = "local urls.json file";
 
-  // check cli for path a) load from local url list; b) load from sitemap; c) array of urls passed in
+  // load the urls.json file so we know what to ignore (even if we don't scan using the urls from here)
+  let ujsonObj = await getUJsonObj();
+  blacklist = ujsonObj.ignoreIfContains[0];
+  urlsFromUjson = ujsonObj.urls[0];
 
   // cli with no options = use local list of urls from urls.json
   if (cliInput.length === 0) {
-    urls = await loadLocalUrlList();
+    urls = urlsFromUjson;
   } else {
     // cli with any options = use sitemap
     sitemap = prepCliSitemap(process.argv.slice(2));
@@ -35,21 +41,54 @@ exports.main = async function(cliInput) {
   }
 
   console.log(`Urls to scan: ${urls}`);
-  let pa11yResults = await scanUrls(urls); // run a pa11y scan on each url in the array
-  printResultDetails(pa11yResults, urls.length, pa11yResults.length);
-  outputResultDetails(pa11yResults, sitemap, urls.length, pa11yResults.length);
+  let pa11yResults = await scanUrls(
+    urls,
+    blacklist,
+    ignoredUrlsDuringScan,
+    urlsThatFailedDuringScan
+  ); // run a pa11y scan on each url in the array
+
+  printResultDetails(
+    pa11yResults,
+    urls.length,
+    pa11yResults.length,
+    ignoredUrlsDuringScan,
+    urlsThatFailedDuringScan
+  );
+  outputResultDetails(
+    pa11yResults,
+    sitemap,
+    urls.length,
+    pa11yResults.length,
+    ignoredUrlsDuringScan,
+    urlsThatFailedDuringScan
+  );
 };
-// attempting to call from the hic.js CLI (part 3 of 3)
+// attempting to call from the hickory.js CLI (part 3 of 3)
 //main();
 
-async function loadLocalUrlList() {
+function isInBlackList(url, blacklist) {
+  for (var x = 0; x < blacklist.length; x++) {
+    if (url.includes(blacklist[x])) {
+      return true; // substring from blacklist found in url
+    }
+  }
+  return false; // not in blacklist
+}
+
+async function getUJsonObj() {
+  const ujsonObj = { urls: [], ignoreIfContains: [] }; // obj to return with arrays of the arrays in urls.json
   try {
     var data = fs.readFileSync("urls.json", "utf8");
     let localUrls = JSON.parse(data);
+
     if (localUrls.urls.length > 0) {
-      urls = localUrls.urls;
+      ujsonObj.urls.push(localUrls.urls);
     }
-    return urls;
+    if (localUrls.ignoreIfContains.length > 0) {
+      ujsonObj.ignoreIfContains.push(localUrls.ignoreIfContains);
+    }
+    return ujsonObj;
   } catch (e) {
     console.log("Error reading url array from urls.json:", e.stack);
   }
@@ -60,8 +99,14 @@ async function getSitemap(url) {
   return results;
 }
 
-async function scanUrls(urls) {
+async function scanUrls(
+  urls,
+  blacklist,
+  ignoredUrlsDuringScan,
+  urlsThatFailedDuringScan
+) {
   const results = [];
+  let tempUrl = null;
   let browser = await puppeteer.launch({
     // open a single browser and don't close it until all urls are scanned
     ignoreHTTPSErrors: true
@@ -70,6 +115,12 @@ async function scanUrls(urls) {
   for (let x = 0; x < urls.length; x++) {
     try {
       const url = urls[x];
+
+      if (isInBlackList(url, blacklist)) {
+        ignoredUrlsDuringScan.push(url);
+        continue; // skip this iteration of the loop
+      }
+      tempUrl = url;
       const result = await pa11y(url, { browser: browser }); // scan url w/ pa11y
       printResultNow(result, x, urls.length);
 
@@ -78,11 +129,8 @@ async function scanUrls(urls) {
         results.push(result);
       }
     } catch (e) {
-      console.log(e);
-
-      if (browser) {
-        return await browser.close();
-      }
+      console.log(chalk`{red Error scanning ${tempUrl}}`);
+      urlsThatFailedDuringScan.push(tempUrl);
     }
   }
   await browser.close();
@@ -96,7 +144,13 @@ function printResultNow(r, currentItem, totalItems) {
   );
 }
 
-function printResultDetails(results, totalUrlCount, totalPageErrorCount) {
+function printResultDetails(
+  results,
+  totalUrlCount,
+  totalPageErrorCount,
+  ignoredUrlsDuringScan,
+  urlsThatFailedDuringScan
+) {
   console.log(``);
   console.log(chalk`{magenta ---------------}`);
   console.log(chalk`{magenta Scan Details}`);
@@ -125,13 +179,26 @@ function printResultDetails(results, totalUrlCount, totalPageErrorCount) {
   console.log(
     chalk`{yellow Number of pages with errors: ${totalPageErrorCount}}`
   );
+
+  if (urlsThatFailedDuringScan.length > 0) {
+    console.log(chalk`{cyan Errors scanning these urls:}`);
+    urlsThatFailedDuringScan.map(i => console.log(chalk`{red ${i}}`));
+  }
+  if (ignoredUrlsDuringScan.length > 0) {
+    console.log(
+      chalk`{cyan Urls skipped by matching the ignoredUrlsDuringScan patterns in urls.json:}`
+    );
+    ignoredUrlsDuringScan.map(i => console.log(chalk`{green ${i}}`));
+  }
 }
 
 function outputResultDetails(
   results,
   sitemap,
   totalUrlCount,
-  totalPageErrorCount
+  totalPageErrorCount,
+  ignoredUrlsDuringScan,
+  urlsThatFailedDuringScan
 ) {
   let timeStampEnd = getTimeStamp();
   let x = `<!DOCTYPE html>
@@ -152,8 +219,11 @@ function outputResultDetails(
     .log-issue-item-selector, .log-issue-summary{
         margin-bottom: .5rem;
     }
-    .item-url{
+    .item-url, .log-scan-error{
         color: crimson;
+    }
+    .log-scan-ignored{
+        color: brown;
     }
     .log-issue-item-context{
         color: teal;
@@ -168,8 +238,31 @@ function outputResultDetails(
     <div><strong>Target:</strong> ${sitemap}</div>
     <div><strong>Ended:</strong> ${timeStampEnd}</div>
     <div><strong>Number of urls scanned:</strong> ${totalUrlCount}</div>
-    <div><strong>Number of pages with errors:</strong> ${totalPageErrorCount}</div>
+    <div><strong>Number of pages with a11y errors:</strong> ${totalPageErrorCount}</div>
     <hr>`;
+
+  if (urlsThatFailedDuringScan.length > 0) {
+    x += `<h2>Errors scanning these urls (${
+      urlsThatFailedDuringScan.length
+    })</h2>`;
+    urlsThatFailedDuringScan.map(
+      i => (x += `<div class="log-scan-error">${i}</div>`)
+    );
+  }
+
+  if (ignoredUrlsDuringScan.length > 0) {
+    x += `<h2>Urls skipped by matching the ignoredUrlsDuringScan patterns in urls.json (${
+      ignoredUrlsDuringScan.length
+    })</h2>`;
+    ignoredUrlsDuringScan.map(
+      i => (x += `<div class="log-scan-ignored">${i}</div>`)
+    );
+  }
+
+  if (urlsThatFailedDuringScan.length > 0 || ignoredUrlsDuringScan.length > 0) {
+    x += `<hr>`;
+  }
+
   // each page
   results.forEach(function(result, i) {
     // each issue per page
@@ -183,6 +276,7 @@ function outputResultDetails(
     });
     x += `<hr>`;
   });
+
   x += `</body></html>`;
 
   // save output to html formatted report

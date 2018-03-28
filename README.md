@@ -4,19 +4,19 @@ This is for creating a more automated approach to using the pa11y accessibility 
 
 ## Usage
 
-* `node hic` OR
-* `node hic unum` OR
-* `node hic colonial`
+* `node hickory` OR
+* `node hickory unum` OR
+* `node hickory colonial`
 
-If you simply run `node hic` it will look into the local urls.json file for a list of urls to scan.
+If you simply run `node hickory` it will look into the local urls.json file for a list of urls to scan.
 
-If you want to scan an entire site using it's sitemap, use `node hic unum` or `node hic colonial`.
+If you want to scan an entire site using it's sitemap, use `node hickory unum` or `node hickory colonial`.
 
 Quite often you will only want to scan a sample selection from all of the urls in the sitemap. For that use:
 
-* `node hic colonial --sample`
-* `node hic colonial --sample 5`
-* `node hic colonial --sample 10 3`
+* `node hickory colonial --sample`
+* `node hickory colonial --sample 5`
+* `node hickory colonial --sample 10 3`
 
 In the above examples:
 
@@ -26,12 +26,12 @@ In the above examples:
 
 Instead of typing in the url of a sitemap file, you can also use shortcuts below:
 
-* `node hic unum`
-* `node hic unum-dev`
-* `node hic unum-acpt`
-* `node hic colonial`
-* `node hic colonial-dev`
-* `node hic colonial-acpt`
-* `node hic mySitemapUrl.xml` (experimental)
+* `node hickory unum`
+* `node hickory unum-dev`
+* `node hickory unum-acpt`
+* `node hickory colonial`
+* `node hickory colonial-dev`
+* `node hickory colonial-acpt`
+* `node hickory mySitemapUrl.xml` (experimental)
 
 The current output generates a .html file after the scan.
