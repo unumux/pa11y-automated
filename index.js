@@ -41,7 +41,7 @@ exports.main = async function(cliInput) {
   }
 
   console.log(`Urls to scan: ${urls}`);
-  let pa11yResults = await scanUrls(
+  let pa11yResultsObj = await scanUrls(
     urls,
     blacklist,
     ignoredUrlsDuringScan,
@@ -49,31 +49,44 @@ exports.main = async function(cliInput) {
   ); // run a pa11y scan on each url in the array
 
   printResultDetails(
-    pa11yResults,
+    pa11yResultsObj.pa11yResults,
     urls.length,
-    pa11yResults.length,
+    pa11yResultsObj.pa11yResults.length,
     ignoredUrlsDuringScan,
-    urlsThatFailedDuringScan
+    urlsThatFailedDuringScan,
+    pa11yResultsObj.pa11yIssuesTotal
   );
   outputResultDetails(
-    pa11yResults,
+    pa11yResultsObj.pa11yResults,
     sitemap,
     urls.length,
-    pa11yResults.length,
+    pa11yResultsObj.pa11yResults.length,
     ignoredUrlsDuringScan,
-    urlsThatFailedDuringScan
+    urlsThatFailedDuringScan,
+    pa11yResultsObj.pa11yIssuesTotal
   );
 };
 // attempting to call from the hickory.js CLI (part 3 of 3)
 //main();
 
-function isInBlackList(url, blacklist) {
+// function isInBlackList(url, blacklist) {
+//   for (var x = 0; x < blacklist.length; x++) {
+//     if (url.includes(blacklist[x])) {
+//       return true; // substring from blacklist found in url
+//     }
+//   }
+//   return false; // not in blacklist
+// }
+function blacklistCheck(url, blacklist) {
+  const resultsObj = { isBlacklisted: false, blacklistMatch: null };
   for (var x = 0; x < blacklist.length; x++) {
     if (url.includes(blacklist[x])) {
-      return true; // substring from blacklist found in url
+      resultsObj.isBlacklisted = true;
+      resultsObj.blacklistMatch = blacklist[x];
+      return resultsObj; // substring from blacklist found in url
     }
   }
-  return false; // not in blacklist
+  return resultsObj; // not in blacklist
 }
 
 async function getUJsonObj() {
@@ -107,6 +120,11 @@ async function scanUrls(
 ) {
   const results = [];
   let tempUrl = null;
+  let totalA11yIssueCount = 0;
+  const resultsObj = {
+    pa11yResults: [],
+    pa11yIssuesTotal: 0
+  };
   let browser = await puppeteer.launch({
     // open a single browser and don't close it until all urls are scanned
     ignoreHTTPSErrors: true
@@ -116,12 +134,17 @@ async function scanUrls(
     try {
       const url = urls[x];
 
-      if (isInBlackList(url, blacklist)) {
-        ignoredUrlsDuringScan.push(url);
+      //if (isInBlackList(url, blacklist)) {
+      let blacklistCheckResults = blacklistCheck(url, blacklist);
+      if (blacklistCheckResults.isBlacklisted) {
+        ignoredUrlsDuringScan.push(
+          `${url} BLACKLIST MATCH: ${blacklistCheckResults.blacklistMatch}`
+        );
         continue; // skip this iteration of the loop
       }
       tempUrl = url;
       const result = await pa11y(url, { browser: browser }); // scan url w/ pa11y
+      totalA11yIssueCount += result.issues.length;
       printResultNow(result, x, urls.length);
 
       // default behavior filters out urls with no problems in final report
@@ -134,7 +157,10 @@ async function scanUrls(
     }
   }
   await browser.close();
-  return results;
+  // return results;
+  resultsObj.pa11yResults = results;
+  resultsObj.pa11yIssuesTotal = totalA11yIssueCount;
+  return resultsObj;
 }
 
 function printResultNow(r, currentItem, totalItems) {
@@ -149,7 +175,8 @@ function printResultDetails(
   totalUrlCount,
   totalPageErrorCount,
   ignoredUrlsDuringScan,
-  urlsThatFailedDuringScan
+  urlsThatFailedDuringScan,
+  pa11yIssuesTotal
 ) {
   console.log(``);
   console.log(chalk`{magenta ---------------}`);
@@ -175,9 +202,12 @@ function printResultDetails(
     console.log(``);
   });
 
-  console.log(chalk`{yellow Number of urls scanned: ${totalUrlCount}}`);
+  console.log(chalk`{yellow Number of urls: ${totalUrlCount}}`);
   console.log(
     chalk`{yellow Number of pages with errors: ${totalPageErrorCount}}`
+  );
+  console.log(
+    chalk`{yellow Number of total pa11y errors: ${pa11yIssuesTotal}}`
   );
 
   if (urlsThatFailedDuringScan.length > 0) {
@@ -198,7 +228,8 @@ function outputResultDetails(
   totalUrlCount,
   totalPageErrorCount,
   ignoredUrlsDuringScan,
-  urlsThatFailedDuringScan
+  urlsThatFailedDuringScan,
+  pa11yIssuesTotal
 ) {
   let timeStampEnd = getTimeStamp();
   let x = `<!DOCTYPE html>
@@ -219,7 +250,7 @@ function outputResultDetails(
     .log-issue-item-selector, .log-issue-summary{
         margin-bottom: .5rem;
     }
-    .item-url, .log-scan-error{
+    .item-url, .log-scan-error, .item-url a, .log-scan-error a{
         color: crimson;
     }
     .log-scan-ignored{
@@ -237,8 +268,16 @@ function outputResultDetails(
     <h1>Automated Pa11y Scan</h1>
     <div><strong>Target:</strong> ${sitemap}</div>
     <div><strong>Ended:</strong> ${timeStampEnd}</div>
-    <div><strong>Number of urls scanned:</strong> ${totalUrlCount}</div>
+    <div><strong>Number of urls:</strong> ${totalUrlCount}</div>
     <div><strong>Number of pages with a11y errors:</strong> ${totalPageErrorCount}</div>
+    <div><strong>Number of total a11y errors:</strong> ${pa11yIssuesTotal}</div>
+    <div><br>Debugging hint:
+      <ol>
+        <li>Copy the error selector. Example: html &gt; body &gt; img:nth-child(22) </li>
+        <li>Open Chrome dev tools to the page with the error (F12 on PC, option+command+i on Mac)</li>
+        <li>Click into the html tree of the Elements tab</li>
+        <li>Ctrl+f (command+f for Mac) to find ... paste and search for the error selector that you copied</li>
+      </ol>
     <hr>`;
 
   if (urlsThatFailedDuringScan.length > 0) {
@@ -246,7 +285,7 @@ function outputResultDetails(
       urlsThatFailedDuringScan.length
     })</h2>`;
     urlsThatFailedDuringScan.map(
-      i => (x += `<div class="log-scan-error">${i}</div>`)
+      i => (x += `<div class="log-scan-error"><a href="${i}">${i}</a></div>`)
     );
   }
 
@@ -269,7 +308,9 @@ function outputResultDetails(
     result.issues.forEach(function(issue, i) {
       x += `<div class="log-issue-item-count"><strong>Issue ${i + 1} of ${
         result.issues.length
-      }</strong> for <span class="item-url">${result.pageUrl}</span></div>\r\n
+      }</strong> for <span class="item-url"><a href="${result.pageUrl}">${
+        result.pageUrl
+      }</a></span></div>\r\n
       <div class="log-issue-item-context">${encode(issue.context)}</div>\r\n
       <div class="log-issue-item-message">${issue.message}</div>\r\n
       <div class="log-issue-item-selector">${issue.selector}</div>\r\n\r\n`;
