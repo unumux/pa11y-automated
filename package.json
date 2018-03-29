@@ -1,0 +1,25 @@
+{
+  "name": "@unumux/hickory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "hickory": "hickory.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "eslint": "^4.19.0",
+    "js-htmlencode": "^0.3.0",
+    "meow": "^4.0.0",
+    "pa11y": "^5.0.3",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
+    "xml2js": "^0.4.19"
+  }
+}
