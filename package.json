@@ -13,10 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.3.2",
-    "eslint": "^4.19.0",
+    "chalk": "^2.4.1",
+    "eslint": "^4.19.1",
     "js-htmlencode": "^0.3.0",
-    "meow": "^4.0.0",
+    "meow": "^4.0.1",
     "pa11y": "^5.0.3",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
