@@ -39,8 +39,8 @@ exports.main = async function(cliInput) {
     // apply CLI options to potentially filter the candidate url list
     urls = prepCliUrls(process.argv.slice(2), urls);
   }
-
-  console.log(`Urls to scan: ${urls}`);
+  
+  console.log(`\r\nUrls to scan:\r\n${urls.join('\r\n')}\r\n`);
   let pa11yResultsObj = await scanUrls(
     urls,
     blacklist,
@@ -48,26 +48,26 @@ exports.main = async function(cliInput) {
     urlsThatFailedDuringScan
   ); // run a pa11y scan on each url in the array
 
-  printResultDetails(
-    pa11yResultsObj.pa11yResults,
-    urls.length,
-    pa11yResultsObj.pa11yResults.length,
-    ignoredUrlsDuringScan,
-    urlsThatFailedDuringScan,
-    pa11yResultsObj.pa11yIssuesTotal
-  );
-  outputResultDetails(
-    pa11yResultsObj.pa11yResults,
-    sitemap,
-    urls.length,
-    pa11yResultsObj.pa11yResults.length,
-    ignoredUrlsDuringScan,
-    urlsThatFailedDuringScan,
-    pa11yResultsObj.pa11yIssuesTotal
-  );
+    printResultDetails(
+      pa11yResultsObj.pa11yResults,
+      urls.length,
+      pa11yResultsObj.pa11yResults.length,
+      ignoredUrlsDuringScan,
+      urlsThatFailedDuringScan,
+      pa11yResultsObj.pa11yIssuesTotal
+    );
+    outputResultDetails(
+      pa11yResultsObj.pa11yResults,
+      sitemap,
+      urls.length,
+      pa11yResultsObj.pa11yResults.length,
+      ignoredUrlsDuringScan,
+      urlsThatFailedDuringScan,
+      pa11yResultsObj.pa11yIssuesTotal
+    );
+
+
 };
-// attempting to call from the hickory.js CLI (part 3 of 3)
-//main();
 
 // function isInBlackList(url, blacklist) {
 //   for (var x = 0; x < blacklist.length; x++) {
@@ -133,8 +133,6 @@ async function scanUrls(
   for (let x = 0; x < urls.length; x++) {
     try {
       const url = urls[x];
-
-      //if (isInBlackList(url, blacklist)) {
       let blacklistCheckResults = blacklistCheck(url, blacklist);
       if (blacklistCheckResults.isBlacklisted) {
         ignoredUrlsDuringScan.push(
@@ -143,7 +141,7 @@ async function scanUrls(
         continue; // skip this iteration of the loop
       }
       tempUrl = url;
-      const result = await pa11y(url, { browser: browser }); // scan url w/ pa11y
+      const result = await pa11y(url, { browser: browser, hideElements: 'img[src*="pages02.net"]' }); // scan url w/ pa11y
       totalA11yIssueCount += result.issues.length;
       printResultNow(result, x, urls.length);
 
