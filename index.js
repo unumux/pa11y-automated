@@ -319,11 +319,14 @@ function outputResultDetails(
   x += `</body></html>`;
 
   // save output to html formatted report
-  fs.writeFile(`${timeStampEnd}_output.html`, x, function(err) {
+  let timeStampEndFormatted = timeStampEnd.replace(':', 'h');
+      timeStampEndFormatted = timeStampEndFormatted.replace(':', 'm');
+      timeStampEndFormatted = timeStampEndFormatted + 's'
+  fs.writeFile(`${timeStampEndFormatted}_output.html`, x, function(err) {
     if (err) throw err;
   });
 
-  console.log(`Html report saved as ${timeStampEnd}_output.html`);
+  console.log(`Html report saved as ${timeStampEndFormatted}_output.html`);
 
   function getTimeStamp() {
     let now = new Date();

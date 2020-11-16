@@ -7,6 +7,7 @@ This is for creating a more automated approach to using the pa11y accessibility 
 * `hickory` OR
 * `hickory unum` OR
 * `hickory colonial`
+* `node hickory` might be needed
 
 > If you simply run `hickory` it will look into the local **urls.json** file for a list of urls to scan.
 

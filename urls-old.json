@@ -1,23 +1,9 @@
 {
   "urls": [
-    "https://unum-stg.phenompro.com/global/en",
-    "https://unum-stg.phenompro.com/global/en/ldp-landing",
-    "https://unum-stg.phenompro.com/global/en/unitedstates-landing-template",
-    "https://unum-stg.phenompro.com/global/en/ireland-landing",
-    "https://unum-stg.phenompro.com/global/en/uk-landing",
-    "https://unum-stg.phenompro.com/global/en/unitedstates-landing-template",
-    "https://unum-stg.phenompro.com/global/en/our-culture",
-    "https://unum-stg.phenompro.com/global/en/our-purpose",
-    "https://unum-stg.phenompro.com/global/en/benefits",
-    "https://unum-stg.phenompro.com/global/en/early-careers",
-    "https://unum-stg.phenompro.com/global/en/experienced-professionals",
-    "https://unum-stg.phenompro.com/global/en/search-results",
-    "https://unum-stg.phenompro.com/global/en/jobcart",
-    "https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC",
-    "https://unum-stg.phenompro.com/global/en/locations",
-    "https://unum-stg.phenompro.com/global/en/equal-employment-opportunity-policy",
-    "https://unum-stg.phenompro.com/global/en/cookiesettings",
-    "https://unum-stg.phenompro.com/global/en/emailpersonalinfo"
+    "http://127.0.0.1:8080/index.html",
+    "http://127.0.0.1:8080/making-a-difference.html",
+    "http://127.0.0.1:8080/our-community.html",
+    "http://127.0.0.1:8080/culture-of-inclusion.html"
   ],
 
   "ignoreIfContains": [

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pa11y Automated Report</title>
+    <style>
+    hr{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    a{
+        color:blue;
+    }
+    .log-issue-item-selector, .log-issue-summary{
+        margin-bottom: .5rem;
+    }
+    .item-url, .log-scan-error, .item-url a, .log-scan-error a{
+        color: crimson;
+    }
+    .log-scan-ignored{
+        color: brown;
+    }
+    .log-issue-item-context{
+        color: teal;
+    }
+    .log-issue-item-message{
+      color: blue;
+    }
+    </style>
+</head>
+<body>
+    <h1>Automated Pa11y Scan</h1>
+    <div><strong>Target:</strong> local urls.json file</div>
+    <div><strong>Ended:</strong> 2020-11-16_09:54:23</div>
+    <div><strong>Number of urls:</strong> 1</div>
+    <div><strong>Number of pages with a11y errors:</strong> 1</div>
+    <div><strong>Number of total a11y errors:</strong> 8</div>
+    <div><br>Debugging hint:
+      <ol>
+        <li>Copy the error selector. Example: html &gt; body &gt; img:nth-child(22) </li>
+        <li>Open Chrome dev tools to the page with the error (F12 on PC, option+command+i on Mac)</li>
+        <li>Click into the html tree of the Elements tab</li>
+        <li>Ctrl+f (command+f for Mac) to find ... paste and search for the error selector that you copied</li>
+      </ol>
+    <hr><div class="log-issue-item-count"><strong>Issue 1 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;button class=&quot;ph-header-search-icon hide au-target&quot; type=&quot;button&quot; data-ph-id=&quot;ph-widget-element-1603374649088-4&quot; au-target-id=&quot;127&quot; aria-label=&quot;&quot;&gt;
+            &lt;ppc-content type=...&lt;/button&gt;</div>
+
+      <div class="log-issue-item-message">This button element does not have a name available to an accessibility API. Valid names are: title undefined, element content, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div > div > div > div > section > div > form > div > button</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;a class=&quot;create-account-link au-target&quot; click.delegate=&quot;handleDialogModal(&#39;signUp&#39;)&quot; href=&quot;javascript:void(0)&quot; data-ph-id=&quot;ph-page-element-page1-IfgBnt&quot; au-target-id=&quot;1681&quot;&gt;
+            &lt;i aria-hidden=&quot;tr...&lt;/a&gt;</div>
+
+      <div class="log-issue-item-message">Anchor element found with a valid href attribute, but no link content has been supplied.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(6) > section > div > div > div > a</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;sYgAQe-PRKNkC-9uLBxa-ph-video-popup-media-large-cc-view1-option1-header-block-primary-action-link-text&quot; instance-id=&quot;PRKNkC-9uLBxa&quot; data-ph-id=&quot;ph-widget-element-1598306670930-16&quot; class=&quot;ppc-text ppc-content&quot;&gt; See more &lt;/ppc-content&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1:1. Recommendation:  change text colour to #feffff.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(8) > div > div > div > div:nth-child(1) > div > div:nth-child(2) > ppc-container > a > ppc-content</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;a tkey-href=&quot;pinLink&quot; tkey=&quot;pinkLinkText&quot; tkeys=&quot;1&quot; class=&quot;phs-location-link&quot; data-ph-id=&quot;ph-widget-element-1601644913811-36&quot;&gt;
+                        &lt;/a&gt;</div>
+
+      <div class="log-issue-item-message">Anchor element found with no link content and no name and/or ID attribute.</div>
+
+      <div class="log-issue-item-selector">#ph-pin-info-window > div > div:nth-child(2) > a</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;file&quot; class=&quot;dz-hidden-input&quot; accept=&quot;.doc, .docx, .pdf, .txt&quot; style=&quot;visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This fileinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">html > body > input</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;file&quot; class=&quot;dz-hidden-input&quot; accept=&quot;.doc, .docx, .pdf, .txt&quot; style=&quot;visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">html > body > input</div>
+
+<div class="log-issue-item-count"><strong>Issue 7 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;button value=&quot;Explore jobs&quot; name=&quot;/job_recommendations&quot; style=&quot;color: rgb(233, 150, 37); border-color: rgb(1, 82, 148);&quot;&gt;Explore jobs&lt;/button&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #ae6500.</div>
+
+      <div class="log-issue-item-selector">#myPushElement > div:nth-child(3) > button:nth-child(1)</div>
+
+<div class="log-issue-item-count"><strong>Issue 8 of 8</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;button value=&quot;Ask a question&quot; name=&quot;/answer_my_question&quot; style=&quot;color: rgb(233, 150, 37); border-color: rgb(1, 82, 148); margin-bottom: 0px;&quot;&gt;Ask a question&lt;/button&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #ae6500.</div>
+
+      <div class="log-issue-item-selector">#myPushElement > div:nth-child(3) > button:nth-child(2)</div>
+
+<hr></body></html>

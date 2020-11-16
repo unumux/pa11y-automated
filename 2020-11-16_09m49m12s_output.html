@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pa11y Automated Report</title>
+    <style>
+    hr{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    a{
+        color:blue;
+    }
+    .log-issue-item-selector, .log-issue-summary{
+        margin-bottom: .5rem;
+    }
+    .item-url, .log-scan-error, .item-url a, .log-scan-error a{
+        color: crimson;
+    }
+    .log-scan-ignored{
+        color: brown;
+    }
+    .log-issue-item-context{
+        color: teal;
+    }
+    .log-issue-item-message{
+      color: blue;
+    }
+    </style>
+</head>
+<body>
+    <h1>Automated Pa11y Scan</h1>
+    <div><strong>Target:</strong> local urls.json file</div>
+    <div><strong>Ended:</strong> 2020-11-16_09:49:12</div>
+    <div><strong>Number of urls:</strong> 18</div>
+    <div><strong>Number of pages with a11y errors:</strong> 9</div>
+    <div><strong>Number of total a11y errors:</strong> 104</div>
+    <div><br>Debugging hint:
+      <ol>
+        <li>Copy the error selector. Example: html &gt; body &gt; img:nth-child(22) </li>
+        <li>Open Chrome dev tools to the page with the error (F12 on PC, option+command+i on Mac)</li>
+        <li>Click into the html tree of the Elements tab</li>
+        <li>Ctrl+f (command+f for Mac) to find ... paste and search for the error selector that you copied</li>
+      </ol>
+    <hr><div class="log-issue-item-count"><strong>Issue 1 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span style=&quot;color:rgba(233, 150, 37, 1);&quot;&gt;multi-year, rotational programs&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(1) > div > div:nth-child(1) > ppc-container:nth-child(2) > span > ppc-content > div > strong > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-36 ph-cc-d-f-s-36 ph-cc-t-f-s-22 ph-cc-m-f-s-16&quot; style=&quot;line-height: inherit !important; display: inherit;&quot;&gt;Professional Development&amp;nbsp;&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.1:1. Recommendation:  change background to #195a96.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(2) > div > div:nth-child(1) > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > h2 > span > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;gray-color&quot;&gt;The Professional Development Pr...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.5:1. Recommendation:  change background to #20619d.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(2) > div > div:nth-child(1) > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-36 ph-cc-d-f-s-36 ph-cc-t-f-s-22 ph-cc-m-f-s-16&quot; style=&quot;line-height: inherit !important; display: inherit;&quot;&gt;Actuarial Development&amp;nbsp;&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.53:1. Recommendation:  change text colour to #004781.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;gray-color&quot;&gt;The Actuarial Development Progr...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.21:1. Recommendation:  change background to #2a6c0e.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-36 ph-cc-d-f-s-36 ph-cc-t-f-s-22 ph-cc-m-f-s-16&quot; style=&quot;line-height: inherit !important; display: inherit;&quot;&gt;Accounting and Finance &amp;nbsp;&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.1:1. Recommendation:  change background to #195a96.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 7 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;gray-color&quot;&gt;The Accounting and Finance Deve...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.5:1. Recommendation:  change background to #20619d.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 8 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(5) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 9 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(5) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 10 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ldp-landing">https://unum-stg.phenompro.com/global/en/ldp-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(5) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(3) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/unitedstates-landing-template">https://unum-stg.phenompro.com/global/en/unitedstates-landing-template</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/unitedstates-landing-template">https://unum-stg.phenompro.com/global/en/unitedstates-landing-template</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/unitedstates-landing-template">https://unum-stg.phenompro.com/global/en/unitedstates-landing-template</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(3) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 6</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;button class=&quot;ph-header-search-icon hide au-target&quot; type=&quot;button&quot; data-ph-id=&quot;ph-widget-element-1603374649088-4&quot; au-target-id=&quot;127&quot; aria-label=&quot;&quot;&gt;
+            &lt;ppc-content type=...&lt;/button&gt;</div>
+
+      <div class="log-issue-item-message">This button element does not have a name available to an accessibility API. Valid names are: title undefined, element content, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div > div > div > div > div > div > section > div > form > div > button</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 6</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;a class=&quot;create-account-link au-target&quot; click.delegate=&quot;handleDialogModal(&#39;signUp&#39;)&quot; href=&quot;javascript:void(0)&quot; data-ph-id=&quot;ph-page-element-page1-IfgBnt&quot; au-target-id=&quot;1681&quot;&gt;
+            &lt;i aria-hidden=&quot;tr...&lt;/a&gt;</div>
+
+      <div class="log-issue-item-message">Anchor element found with a valid href attribute, but no link content has been supplied.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(6) > section > div > div > div > a</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 6</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;sYgAQe-PRKNkC-9uLBxa-ph-video-popup-media-large-cc-view1-option1-header-block-primary-action-link-text&quot; instance-id=&quot;PRKNkC-9uLBxa&quot; data-ph-id=&quot;ph-widget-element-1598306670930-16&quot; class=&quot;ppc-text ppc-content&quot;&gt; See more &lt;/ppc-content&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1:1. Recommendation:  change text colour to #feffff.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(8) > div > div > div > div:nth-child(1) > div > div:nth-child(2) > ppc-container > a > ppc-content</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 6</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;a tkey-href=&quot;pinLink&quot; tkey=&quot;pinkLinkText&quot; tkeys=&quot;1&quot; class=&quot;phs-location-link&quot; data-ph-id=&quot;ph-widget-element-1601644913811-36&quot;&gt;
+                        &lt;/a&gt;</div>
+
+      <div class="log-issue-item-message">Anchor element found with no link content and no name and/or ID attribute.</div>
+
+      <div class="log-issue-item-selector">#ph-pin-info-window > div > div:nth-child(2) > a</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 6</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;file&quot; class=&quot;dz-hidden-input&quot; accept=&quot;.doc, .docx, .pdf, .txt&quot; style=&quot;visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This fileinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">html > body > input</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 6</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en">https://unum-stg.phenompro.com/global/en</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;file&quot; class=&quot;dz-hidden-input&quot; accept=&quot;.doc, .docx, .pdf, .txt&quot; style=&quot;visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">html > body > input</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;h2 data-ph-id=&quot;ph-page-element-page20-LyY9B0&quot;&gt;
+                &lt;ppc-content k...&lt;/h2&gt;</div>
+
+      <div class="log-issue-item-message">Heading tag found with no content. Text that is not intended as a heading should not be marked up with heading tags.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > h2</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(3) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(3) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-30 ph-cc-d-f-s-30 ph-cc-t-f-s-18 ph-cc-m-f-s-16&quot;&gt;Software Engineer&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#slick-slide00 > div > div > div:nth-child(1) > div > ppc-container:nth-child(1) > span > ppc-content > div > span > strong > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;font color=&quot;#f3f3f3&quot;&gt;Life Assurance&lt;/font&gt;</div>
+
+      <div class="log-issue-item-message">Presentational markup used that has become obsolete in HTML5.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(8) > div > div > div > div:nth-child(2) > div > div:nth-child(8) > div > div > div:nth-child(2) > div > ppc-container > span > ppc-content > div > font</div>
+
+<div class="log-issue-item-count"><strong>Issue 7 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span style=&quot;color:rgba(233, 150, 37, 1);&quot;&gt;Test Engineer&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#slick-slide01 > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 8 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-30 ph-cc-d-f-s-30 ph-cc-t-f-s-18 ph-cc-m-f-s-16&quot;&gt;IT Delivery Manager&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(6) > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div:nth-child(1) > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span > strong > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 9 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-30 ph-cc-d-f-s-30 ph-cc-t-f-s-18 ph-cc-m-f-s-16&quot;&gt;Sr. Software Engineer&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#slick-slide02 > div > div > div:nth-child(1) > div > ppc-container:nth-child(1) > span > ppc-content > div > strong > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 10 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-30 ph-cc-d-f-s-30 ph-cc-t-f-s-18 ph-cc-m-f-s-16&quot;&gt;IT Delivery Manager&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#slick-slide03 > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span > strong > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 11 of 11</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/ireland-landing">https://unum-stg.phenompro.com/global/en/ireland-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-cc-ms-f-s-30 ph-cc-d-f-s-30 ph-cc-t-f-s-18 ph-cc-m-f-s-16&quot;&gt;Software Engineer&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.37:1. Recommendation:  change text colour to #d48110.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(6) > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div:nth-child(6) > div > div > div:nth-child(1) > div > ppc-container:nth-child(1) > span > ppc-content > div > span > strong > span</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/uk-landing">https://unum-stg.phenompro.com/global/en/uk-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/uk-landing">https://unum-stg.phenompro.com/global/en/uk-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/uk-landing">https://unum-stg.phenompro.com/global/en/uk-landing</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(3) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/unitedstates-landing-template">https://unum-stg.phenompro.com/global/en/unitedstates-landing-template</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/unitedstates-landing-template">https://unum-stg.phenompro.com/global/en/unitedstates-landing-template</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 3</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/unitedstates-landing-template">https://unum-stg.phenompro.com/global/en/unitedstates-landing-template</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page20-RoLydS&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(4) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > ul > li:nth-child(3) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;z9aNzq-0i9GFc-uNfq3W-ph-media-large-img-left-cc-view1-option2-description-text&quot; data-ph-at-id=&quot;description-text&quot; instance-id=&quot;0i9GFc-uNfq3W&quot; data-ph-id=&quot;ph-widget-element-1604466993086-36&quot; class=&quot;ppc-text ppc-content&quot;&gt; Unum&amp;nbsp;has...</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.84:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(8) > div > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(1) > div > ppc-container:nth-child(2) > span > ppc-content</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;em&gt;Forbes&lt;/em&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.84:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(8) > div > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(1) > div > ppc-container:nth-child(2) > span > ppc-content > em</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;brand-color-primary&quot;&gt;LGBTQ+ ERG&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.53:1. Recommendation:  change text colour to #002c51.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(9) > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-nC9Q8&quot;&gt;Aims to influence company polic...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.15:1. Recommendation:  change background to #438527.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(9) > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-nC9Q8&quot;&gt;Veterans Networking&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.15:1. Recommendation:  change background to #438527.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(9) > div > div > div > div:nth-child(2) > div > div:nth-child(4) > div > div > div:nth-child(2) > div > ppc-container:nth-child(1) > span > ppc-content > div > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-nC9Q8&quot;&gt;Focuses on the recruitment, dev...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.15:1. Recommendation:  change background to #438527.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(9) > div > div > div > div:nth-child(2) > div > div:nth-child(4) > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > span:nth-child(1)</div>
+
+<div class="log-issue-item-count"><strong>Issue 7 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;ph-nC9Q8&quot;&gt;making Unum the veteran employe...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.15:1. Recommendation:  change background to #438527.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(9) > div > div > div > div:nth-child(2) > div > div:nth-child(4) > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > span:nth-child(3)</div>
+
+<div class="log-issue-item-count"><strong>Issue 8 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;div&gt;We are championing equity and o...&lt;/div&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.84:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(10) > div > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div</div>
+
+<div class="log-issue-item-count"><strong>Issue 9 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;em&gt;We designed this program to fos...&lt;/em&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.84:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(10) > div > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > em</div>
+
+<div class="log-issue-item-count"><strong>Issue 10 of 10</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/our-culture">https://unum-stg.phenompro.com/global/en/our-culture</a></span></div>
+
+      <div class="log-issue-item-context">&lt;strong&gt;Liz Ahmed&lt;/strong&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.84:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > section:nth-child(10) > div > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div > ppc-container:nth-child(2) > span > ppc-content > div > strong</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;button class=&quot;ph-header-search-icon hide au-target&quot; type=&quot;button&quot; data-ph-id=&quot;ph-widget-element-1603374649088-4&quot; au-target-id=&quot;93&quot; aria-label=&quot;&quot;&gt;
+            &lt;ppc-content type=...&lt;/button&gt;</div>
+
+      <div class="log-issue-item-message">This button element does not have a name available to an accessibility API. Valid names are: title undefined, element content, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > section > div > div > div > div > div > div > div > section > div > form > div > button</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;ph-facets-v1-view1-bieci1-ROKUiM&quot; data-ph-at-id=&quot;heading-text&quot; data-ph-id=&quot;ph-page-element-page14-ZEqLMs&quot;&gt;
+          Refine your Search 
+...&lt;/ppc-content&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(1) > section:nth-child(2) > div > div > div > div:nth-child(2) > div > h2 > ppc-content</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#locationInput_0</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#locationInput_0</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#locationInput_1</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#locationInput_1</div>
+
+<div class="log-issue-item-count"><strong>Issue 7 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#locationInput_2</div>
+
+<div class="log-issue-item-count"><strong>Issue 8 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#locationInput_2</div>
+
+<div class="log-issue-item-count"><strong>Issue 9 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#locationInput_3</div>
+
+<div class="log-issue-item-count"><strong>Issue 10 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#locationInput_3</div>
+
+<div class="log-issue-item-count"><strong>Issue 11 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#locationInput_4</div>
+
+<div class="log-issue-item-count"><strong>Issue 12 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#locationInput_4</div>
+
+<div class="log-issue-item-count"><strong>Issue 13 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#locationInput_5</div>
+
+<div class="log-issue-item-count"><strong>Issue 14 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; aria-autocomplete=&quot;list&quot; class=&quot;form-control search-box ph-a11y-search-location-box au-target&quot; name=&quot;locationVal&quot; value.bind=&quot;$parent.placeVal&quot; keyup.trigger=&quot;fetchLocations($event)&quot; data-ph-at-id=&quot;facet-textbox&quot; data-ph-id=&quot;ph-pag...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#locationInput_5</div>
+
+<div class="log-issue-item-count"><strong>Issue 15 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; value.bind=&quot;searchParams.subsearch&quot; autocomplete=&quot;off&quot; class=&quot;form-control au-target&quot; id=&quot;sub_search_textbox&quot; data-ph-at-id=&quot;sub-search-textbox&quot; data-ph-id=&quot;ph-page-element-page14-1sLL40&quot; au-target-id=&quot;440&quot; placeholder=&quot;Search from...</div>
+
+      <div class="log-issue-item-message">This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#sub_search_textbox</div>
+
+<div class="log-issue-item-count"><strong>Issue 16 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;text&quot; value.bind=&quot;searchParams.subsearch&quot; autocomplete=&quot;off&quot; class=&quot;form-control au-target&quot; id=&quot;sub_search_textbox&quot; data-ph-at-id=&quot;sub-search-textbox&quot; data-ph-id=&quot;ph-page-element-page14-1sLL40&quot; au-target-id=&quot;440&quot; placeholder=&quot;Search from...</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#sub_search_textbox</div>
+
+<div class="log-issue-item-count"><strong>Issue 17 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;ph-search-results-v2-view2-xw5fbg-WJ7BE4&quot; data-ph-at-id=&quot;showing-text&quot; data-ph-id=&quot;ph-page-element-page14-PyJs7k&quot; language-overriden=&quot;true&quot;&gt; Showing &lt;/ppc-content&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(1) > ppc-content:nth-child(1)</div>
+
+<div class="log-issue-item-count"><strong>Issue 18 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;job-number&quot; data-ph-id=&quot;ph-page-element-page14-35OfQT&quot;&gt; 1 &lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(1) > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 19 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;job-number&quot; key=&quot;ph-search-results-v2-view2-xw5fbg-uYrnYE&quot; data-ph-at-id=&quot;hyphen-text&quot; data-ph-id=&quot;ph-page-element-page14-4Acp7y&quot; language-overriden=&quot;true&quot;&gt; - &lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(1) > span:nth-child(3)</div>
+
+<div class="log-issue-item-count"><strong>Issue 20 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;job-number&quot; data-ph-id=&quot;ph-page-element-page14-9WKa1k&quot;&gt; 10 &lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(1) > span:nth-child(4)</div>
+
+<div class="log-issue-item-count"><strong>Issue 21 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;ph-search-results-v2-view2-xw5fbg-hEzXW9&quot; data-ph-at-id=&quot;of-text&quot; data-ph-id=&quot;ph-page-element-page14-VFVDF3&quot; language-overriden=&quot;true&quot;&gt; of&lt;/ppc-content&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(1) > ppc-content:nth-child(5)</div>
+
+<div class="log-issue-item-count"><strong>Issue 22 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;total-jobs&quot; data-ph-id=&quot;ph-page-element-page14-5W3bta&quot;&gt; 27 &lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 23 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;ppc-content key=&quot;ph-search-results-v2-view2-xw5fbg-vwvxWx&quot; data-ph-at-id=&quot;countLabel&quot; data-ph-id=&quot;ph-page-element-page14-FtbhyR&quot; language-overriden=&quot;true&quot;&gt;jobs&lt;/ppc-content&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p > span:nth-child(3) > ppc-content</div>
+
+<div class="log-issue-item-count"><strong>Issue 24 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;option value=&quot;Most relevant&quot; key=&quot;ph-search-results-v2-view2-xw5fbg-z2lBgn&quot; role=&quot;option&quot; key-role=&quot;ph-search-results-v2-view2-xw5fbg-Rhb7tn&quot; data-ph-id=&quot;ph-page-element-page14-ZAKOst&quot; language-overriden=&quot;true&quot;&gt; Most relevant &lt;/option&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#sortselect > option:nth-child(1)</div>
+
+<div class="log-issue-item-count"><strong>Issue 25 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;option value=&quot;Most recent&quot; key=&quot;ph-search-results-v2-view2-xw5fbg-cdkYAU&quot; role=&quot;option&quot; key-role=&quot;ph-search-results-v2-view2-xw5fbg-ZllTdc&quot; data-ph-id=&quot;ph-page-element-page14-DrGGFf&quot; language-overriden=&quot;true&quot;&gt; Most recent &lt;/option&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#sortselect > option:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 26 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(1) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 27 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 28 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(3) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 29 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(4) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 30 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(5) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 31 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(6) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 32 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(7) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 33 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(8) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 34 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(9) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 35 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span data-ph-id=&quot;ph-page-element-page14-a4tJnc&quot;&gt;
+                              ...&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.92:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(10) > div:nth-child(2) > ul > li > div > div > label > span > span</div>
+
+<div class="log-issue-item-count"><strong>Issue 36 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;a href.bind=&quot;paginationUrls[page]&quot; ph-tevent=&quot;pagination_click&quot; data-ph-at-id=&quot;pagination-page-number-link&quot; role=&quot;button&quot; key-role=&quot;ph-search-results-v2-view2-xw5fbg-HVLbRZ&quot; data-ph-id=&quot;ph-page-element-page14-nu7HWN&quot; class=&quot;au-target&quot; au-target-id=&quot;...</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1.71:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(2) > ul > li:nth-child(3) > a</div>
+
+<div class="log-issue-item-count"><strong>Issue 37 of 37</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/search-results">https://unum-stg.phenompro.com/global/en/search-results</a></span></div>
+
+      <div class="log-issue-item-context">&lt;a href.bind=&quot;paginationUrls[page]&quot; ph-tevent=&quot;pagination_click&quot; data-ph-at-id=&quot;pagination-page-number-link&quot; role=&quot;button&quot; key-role=&quot;ph-search-results-v2-view2-xw5fbg-HVLbRZ&quot; data-ph-id=&quot;ph-page-element-page14-nu7HWN&quot; class=&quot;au-target&quot; au-target-id=&quot;...</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1.71:1. Recommendation:  change text colour to #767676.</div>
+
+      <div class="log-issue-item-selector">#acc-skip-content > div > div > div > div > div:nth-child(2) > section:nth-child(2) > div > div > div > div:nth-child(2) > ul > li:nth-child(4) > a</div>
+
+<hr><div class="log-issue-item-count"><strong>Issue 1 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;form id=&quot;cmsForm&quot; class=&quot;container&quot;&gt;
+        &lt;input type=&quot;hidden&quot; n...&lt;/form&gt;</div>
+
+      <div class="log-issue-item-message">This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute "submit" or "image", or BUTTON elements with type "submit" or omitted/invalid.</div>
+
+      <div class="log-issue-item-selector">#cmsForm</div>
+
+<div class="log-issue-item-count"><strong>Issue 2 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(5) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 3 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(6) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 4 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(7) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 5 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(8) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 6 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(9) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 7 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(11) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 8 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(13) > label > span:nth-child(2)</div>
+
+<div class="log-issue-item-count"><strong>Issue 9 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input class=&quot;select2-search__field&quot; type=&quot;search&quot; tabindex=&quot;0&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; spellcheck=&quot;false&quot; role=&quot;textbox&quot; aria-autocomplete=&quot;list&quot; placeholder=&quot;Please select&quot; style=&quot;width: 572px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This searchinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(13) > div:nth-child(2) > span > span:nth-child(1) > span > ul > li > input</div>
+
+<div class="log-issue-item-count"><strong>Issue 10 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input class=&quot;select2-search__field&quot; type=&quot;search&quot; tabindex=&quot;0&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; spellcheck=&quot;false&quot; role=&quot;textbox&quot; aria-autocomplete=&quot;list&quot; placeholder=&quot;Please select&quot; style=&quot;width: 572px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This searchinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(14) > div:nth-child(2) > span > span:nth-child(1) > span > ul > li > input</div>
+
+<div class="log-issue-item-count"><strong>Issue 11 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;emailCommunication&quot; name=&quot;emailCommunication&quot; onclick=&quot;registerAgreementCheck(this)&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This checkboxinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#emailCommunication</div>
+
+<div class="log-issue-item-count"><strong>Issue 12 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;emailCommunication&quot; name=&quot;emailCommunication&quot; onclick=&quot;registerAgreementCheck(this)&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#emailCommunication</div>
+
+<div class="log-issue-item-count"><strong>Issue 13 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;singleSmsOptIn&quot; name=&quot;singleSmsOptIn&quot; style=&quot;visibility:hidden&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This checkboxinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#singleSmsOptIn</div>
+
+<div class="log-issue-item-count"><strong>Issue 14 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;singleSmsOptIn&quot; name=&quot;singleSmsOptIn&quot; style=&quot;visibility:hidden&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#singleSmsOptIn</div>
+
+<div class="log-issue-item-count"><strong>Issue 15 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;smsOptin&quot; name=&quot;smsOptin&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This checkboxinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#smsOptin</div>
+
+<div class="log-issue-item-count"><strong>Issue 16 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;smsOptin&quot; name=&quot;smsOptin&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#smsOptin</div>
+
+<div class="log-issue-item-count"><strong>Issue 17 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;agreement&quot; name=&quot;agreement&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This checkboxinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">#agreement</div>
+
+<div class="log-issue-item-count"><strong>Issue 18 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;checkbox&quot; id=&quot;agreement&quot; name=&quot;agreement&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">#agreement</div>
+
+<div class="log-issue-item-count"><strong>Issue 19 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;</div>
+
+      <div class="log-issue-item-message">This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 4:1. Recommendation:  change text colour to #e00.</div>
+
+      <div class="log-issue-item-selector">#cmsForm > div > div:nth-child(17) > span:nth-child(3)</div>
+
+<div class="log-issue-item-count"><strong>Issue 20 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;file&quot; class=&quot;dz-hidden-input&quot; style=&quot;visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This fileinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.</div>
+
+      <div class="log-issue-item-selector">html > body > input</div>
+
+<div class="log-issue-item-count"><strong>Issue 21 of 21</strong> for <span class="item-url"><a href="https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC">https://unum-stg.phenompro.com/global/en/jointalentcommunity?applyType=JTC</a></span></div>
+
+      <div class="log-issue-item-context">&lt;input type=&quot;file&quot; class=&quot;dz-hidden-input&quot; style=&quot;visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;&quot;&gt;</div>
+
+      <div class="log-issue-item-message">This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.</div>
+
+      <div class="log-issue-item-selector">html > body > input</div>
+
+<hr></body></html>
